@@ -1,1 +1,2 @@
-# CoyPU_demo
+# CoyPu
+CoyPU KG creation
