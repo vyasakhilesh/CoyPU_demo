@@ -1,25 +1,34 @@
 import mysql.connector as mysql
 import csv
-import argparse as ap
 import pandas as pd
-import os
+from os import listdir
+from os.path import isfile, join
 from sqlalchemy import create_engine
+from sqlalchemy import engine as eng
+import ntpath
 
-path = "/home/tibvyasa/projects/proj_off/data_off/coypu/ips/data/"
-fileName = "CountryData2021.csv"
-file = os.path.join(path + fileName)
+from arg_parser import argumentParser
 
-# Credentials to database connection
-hostname = "localhost"
-dbname = "mydb_name"
-uname = "my_user_name"
-pwd = "my_password"
-port = "port"
+# file = os.path.join(path + fileName)
 
 
-def connect_to_db():
+def getfilesList(path):
+    file_path_list = [
+        join(path, f)
+        for f in listdir(path)
+        if isfile(join(path, f)) and f.endswith(".csv")
+    ]
+    return file_path_list
+
+
+def path_leaf(path):
+    head, tail = ntpath.split(path)
+    return tail or ntpath.basename(head)
+
+
+def connect_to_db_mysql_con(host, port, uname, pwd, dbname):
     db = mysql.connect(
-        host=hostname,
+        host=host,
         port=port,
         user=uname,
         passwd=pwd,
@@ -29,30 +38,53 @@ def connect_to_db():
     return db
 
 
-def create_tables(cursor):
-    cursor.execute("CREATE TABLE test (name VARCHAR(255), user_name VARCHAR(255))")
-    cursor.execute("CREATE TABLE test (name VARCHAR(255), user_name VARCHAR(255))")
-
-
-def file_dtypes_details(file, cursor):
-    data = pd.read_csv(
-        file, delimiter=",", infer_datetime_format=True, encoding="utf-8"
+def connect_to_db(host, port, uname, pwd, dbname):
+    engine = create_engine(
+        "mysql+pymysql://{user}:{pw}@{hostname}:{portno}/{db}".format(
+            hostname=host, db=dbname, user=uname, pw=pwd, portno=port
+        )
     )
-    data.to_sql("users", con=cursor)
-    print([(i, j) for i, j in zip(data.columns, data.dtypes)])
+    return engine
+
+
+def create_tables(cursor):
+    # cursor.execute("CREATE TABLE test (name VARCHAR(255), user_name VARCHAR(255))")
+    pass
+
+
+def df_to_db(path, con):
+    file_path_list = getfilesList(path)
+    # print(file_path_list)
+
+    for file, filename in zip(
+        file_path_list, [path_leaf(path) for path in file_path_list]
+    ):
+        data = pd.read_csv(
+            file, delimiter=",", infer_datetime_format=True, encoding="utf-8"
+        )
+
+        if isinstance(con, eng.base.Engine):
+            print("Class Type detected :sqlalchemy.engine.base.Engine ")
+            data.to_sql(filename, con=con, index=False, if_exists="replace")
+
+        print([(i, j) for i, j in zip(data.columns, data.dtypes)])
 
 
 def upload_csvdata(file, cursor):
     pass
 
 
-def main():
-    db = connect_to_db()
-    print(db)
+def engine_execution(host, port, uname, pwd, dbname, inpath):
+    engine = connect_to_db(host, port, uname, pwd, dbname)
+    df_to_db(inpath, engine)
+
+
+def cursor_exectcution(host, port, uname, pwd, dbname, inpath):
+    db = connect_to_db_mysql_con(host, port, uname, pwd, dbname)
     cursor = db.cursor()
-    cursor.execute("SHOW DATABASES")
-    print("all databases", cursor.fetchall())
-    file_dtypes_details(file, cursor)
+    # cursor.execute("SHOW DATABASES")
+    # print("all databases", cursor.fetchall())
+    df_to_db(inpath, cursor)
 
     try:
         create_tables(cursor)
@@ -63,6 +95,16 @@ def main():
     print("all tables", cursor.fetchall())
     db.commit()
     db.close()
+
+
+def main():
+    args = argumentParser()
+    engine_execution(
+        args.host, args.port, args.uname, args.pwd, args.dbname, args.inpath
+    )
+    cursor_exectcution(
+        args.host, args.port, args.uname, args.pwd, args.dbname, args.inpath
+    )
 
 
 if __name__ == "__main__":
