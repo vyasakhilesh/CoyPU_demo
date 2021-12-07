@@ -1,0 +1,12 @@
+Linking of BlankNode (generted RML:Query)
+Parent_Map: with rr:constant, rr:template , rr:query enabled or 
+After selection of two dataset .. duplicates are removed
+rr:objectMap [rr:constant "2021"; rr:datatype xsd:positiveInteger];
+
+
+
+
+Notes
+# id + Ontology+id
+# id with your own ontology even you have url
+#

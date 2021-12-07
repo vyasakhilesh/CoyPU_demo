@@ -1,0 +1,71 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix ips: <https://schema.implisense.com/#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix ex: <http://example.com/ns#>.
+
+<CountryData2021_1> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source <#DB_source>; 
+        rr:sqlVersion rr:SQL2008;
+        # rml:query "SELECT iso, Year, Rang FROM CountriesResilienceSample2021";        
+        rr:tableName "CountryData2021"
+    ];
+    rr:subjectMap [
+        rr:template "https://data.coypu.org/countries/{ISO3}";
+        rr:class ips:Country;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:currency;
+        rr:objectMap [ rml:reference "CurrencyName"; rr:language "en"];
+    ];
+
+      rr:predicateObjectMap [
+        rr:predicate ex:HasCurrencyCode;
+        rr:objectMap [ rml:reference "CurrencyCode"; rr:language "en"];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ips:phone;
+        rr:objectMap [ rml:reference "Phone"; rr:language "en"];
+    ];
+    
+     rr:predicateObjectMap [
+        rr:predicate ex:isPartOf;
+        rr:objectMap [ rml:reference "Continent"; rr:language "en"];
+    ].
+
+
+<CountryData2021_2> a rr:TriplesMap;
+    rml:logicalSource  [
+        rml:source <#DB_source>; 
+        rr:sqlVersion rr:SQL2008;
+        #rml:query """SELECT iso, Year, Rang FROM CountriesResilienceSample2021 """       
+        rr:tableName "CountryData2021" 
+        ];
+    
+    rr:subjectMap [
+        rr:template "http://example.com/ns#CountryStatistics/{ISO3}";
+    ];
+
+     rr:predicateObjectMap [
+        rr:predicate ex:HasPopulation;
+        rr:objectMap [ rml:reference "Population"; rr:datatype xsd:positiveInteger];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ips:year;
+        rr:objectMap [ rr:constant "2021";  rr:termType rr:Literal; rr:datatype xsd:positiveInteger];
+    ].
+
+
+<#DB_source> a d2rq:Database;
+  d2rq:jdbcDSN  "jdbc:mysql"; # "CONNECTIONDSN"; # the "jbdc:mysql:// part is ignored
+  d2rq:jdbcDriver "com.mysql.jdbc.Driver"; # "com.mysql.cj.jdbc.Driver"; # this is ignored
+  d2rq:username "avyas";
+  d2rq:password "" .

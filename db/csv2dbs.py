@@ -2,7 +2,7 @@ import mysql.connector as mysql
 import csv
 import pandas as pd
 from os import listdir
-from os.path import isfile, join
+from os.path import isfile, join, splitext
 from sqlalchemy import create_engine
 from sqlalchemy import engine as eng
 import ntpath
@@ -65,7 +65,9 @@ def df_to_db(path, con):
 
         if isinstance(con, eng.base.Engine):
             print("Class Type detected :sqlalchemy.engine.base.Engine ")
-            data.to_sql(filename, con=con, index=False, if_exists="replace")
+            data.to_sql(
+                splitext(filename)[0], con=con, index=False, if_exists="replace"
+            )
 
         print([(i, j) for i, j in zip(data.columns, data.dtypes)])
 
