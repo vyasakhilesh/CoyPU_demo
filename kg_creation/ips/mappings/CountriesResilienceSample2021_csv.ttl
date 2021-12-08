@@ -10,14 +10,12 @@
 @prefix ex: <http://example.com/ns#> .
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 
 <CountriesResilienceSample2021_2> a rr:TriplesMap;
-    rml:logicalSource  [
-        rml:source <#DB_source>; 
-        rr:sqlVersion rr:SQL2008;
-        # rml:query """SELECT iso, Year, Rang FROM CountriesResilienceSample2021 """       
-        rr:tableName "CountriesResilienceSample2021" 
-        ];
+    rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/data_off/coypu/ips/data/CountriesResilienceSample2021.csv";
+						rml:referenceFormulation ql:CSV 
+						];
     
     rr:subjectMap [
         rr:template "http://example.com/ns#CountryStatistics/{iso}";
@@ -28,22 +26,21 @@
         rr:objectMap [ rml:reference "Rang"; rr:datatype xsd:positiveInteger];
     ];
     
-    rr:predicateObjectMap [
+     rr:predicateObjectMap [
         rr:predicate ips:year;
         rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
     ];
 
     rr:predicateObjectMap [
         rr:predicate ips:exposure;
-        rr:objectMap <#chomp_function>;
+        rr:objectMap <#chomp_function>
+    #    rml:reference "Exposure"
     ].
 
 <#CountriesResilienceSample2021_1> a rr:TriplesMap;
-    rml:logicalSource  [
-        rml:source <#DB_source>; 
-        rr:sqlVersion rr:SQL2008;
-    # rml:query "SELECT NoColumnName, Name FROM student";        
-        rr:tableName "CountriesResilienceSample2021" ];
+    rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/data_off/coypu/ips/data/CountriesResilienceSample2021.csv";
+						rml:referenceFormulation ql:CSV 
+						];
     
     rr:subjectMap [
         rr:template "https://data.coypu.org/countries/{iso}";
@@ -79,29 +76,40 @@
 
 <#chomp_function>
     fnml:functionValue [
-        rml:logicalSource [ rml:source <#DB_source>; 
-        rr:sqlVersion rr:SQL2008;        
-        rr:tableName "CountriesResilienceSample2021" 
-                            ];
+        rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/data_off/coypu/ips/data/CountriesResilienceSample2021.csv";
+						rml:referenceFormulation ql:CSV 
+						];
         rr:predicateObjectMap [
             rr:predicate fno:executes;
             rr:objectMap [ 
-                rr:constant ex:chomp 
+                rr:constant ex:concat2 
             ]
         ];
-        rr:predicateObjectMap [
-            rr:predicate ex:value;
-            rr:objectMap [ 
-                rml:reference "Exposure" 
-            ] 
-        ];  
 
         rr:predicateObjectMap [
-            rr:predicate ex:toremove;
+            rr:predicate ex:value1;
             rr:objectMap [ 
-                rr:constant "%" 
-            ] 
-        ];  
+                rml:reference "country_name_de" 
+            ]
+        ];
+
+        rr:predicateObjectMap [
+            rr:predicate ex:value2;
+            rr:objectMap [rml:reference "country_name_de"]
+        ];
+        # rr:predicateObjectMap [
+        #     rr:predicate ex:value;
+        #     rr:objectMap [ 
+        #         rml:reference "country_name_de" 
+        #     ] 
+        # ];  
+
+        # rr:predicateObjectMap [
+        #     rr:predicate ex:toremove;
+        #     rr:objectMap [ 
+        #         rr:constant "%" 
+        #     ] 
+        # ];  
     ].
 
 

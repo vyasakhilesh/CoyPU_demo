@@ -18,8 +18,13 @@
         rr:tableName "GlobalDisastersSample2021"
     ];
     rr:subjectMap [
-        rr:template "{url}";
+        rr:template "https://data.coypu.org/disasters/{id}";
         rr:class ips:Event;
+    ];
+
+     rr:predicateObjectMap [
+        rr:predicate ips:url;
+        rr:objectMap [ rml:reference "url"; rr:datatype xsd:anyURI];
     ];
 
 

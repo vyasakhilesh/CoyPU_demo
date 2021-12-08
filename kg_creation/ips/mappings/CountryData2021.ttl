@@ -20,6 +20,12 @@
         rr:template "https://data.coypu.org/countries/{ISO3}";
         rr:class ips:Country;
     ];
+
+    rr:predicateObjectMap [
+        rr:predicate ips:isoCode;
+        rr:objectMap [ rml:reference "ISO3"; rr:datatype xsd:string];
+    ];
+
     rr:predicateObjectMap [
         rr:predicate ips:currency;
         rr:objectMap [ rml:reference "CurrencyName"; rr:language "en"];
@@ -36,7 +42,7 @@
     ];
     
      rr:predicateObjectMap [
-        rr:predicate ex:isPartOf;
+        rr:predicate ex:isPartOfContinent;
         rr:objectMap [ rml:reference "Continent"; rr:language "en"];
     ].
 
@@ -60,7 +66,7 @@
 
     rr:predicateObjectMap [
         rr:predicate ips:year;
-        rr:objectMap [ rr:constant "2021";  rr:termType rr:Literal; rr:datatype xsd:positiveInteger];
+        rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
     ].
 
 
