@@ -1,7 +1,8 @@
+$ git status
 *.cred
 *.ini
 *.jar
 *.csv
 *.xlsx
-./datasets/
-./.vscode/
+datasets/
+.vscode/
