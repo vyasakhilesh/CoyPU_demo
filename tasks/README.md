@@ -10,3 +10,9 @@
 # Meta Data about datasources
 ## datatype and ontologies,
 
+# upload datasets in sql
+
+# Create shapes
+
+# Auto execution of whole pipeline
+## Asking execution of whole pipeline interactively from the user
