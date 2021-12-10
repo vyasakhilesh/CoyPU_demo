@@ -1,5 +1,7 @@
 *.cred
 *.ini
 *.jar
+*.csv
+*.xlsx
 datasets/
 .vscode/
