@@ -3,5 +3,5 @@
 *.jar
 *.csv
 *.xlsx
-datasets/
-.vscode/
+./datasets/
+./.vscode/
