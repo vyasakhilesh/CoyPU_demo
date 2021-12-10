@@ -1,4 +1,3 @@
-$ git status
 *.cred
 *.ini
 *.jar
