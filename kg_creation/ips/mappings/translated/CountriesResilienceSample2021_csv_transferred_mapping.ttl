@@ -1,0 +1,93 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix ips: <https://schema.implisense.com/#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix ex: <http://example.com/ns/> .
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
+@prefix fno: <https://w3id.org/function/ontology#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+
+<CountriesResilienceSample2021_1>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/local_repos/CoyPU_demo/kg_creation/ips/mappings//translated/CountriesResilienceSample2021_csv_PROJECT1.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "https://data.coypu.org/countries/{iso}";
+        rr:class ips:Country
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:alternateName;
+        rr:objectMap [
+        rml:reference "country_name_de"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:isoCode;
+        rr:objectMap [
+        rml:reference "iso"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rml:reference "country_name_en"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:hasCountryStatistics;
+        rr:objectMap [
+        rr:template  "http://example.com/ns#CountryStatistics/{iso}"
+        ]
+    ].
+
+<file:///home/tibvyasa/projects/proj_off/local_repos/CoyPU_demo/kg_creation/ips/mappings//CountriesResilienceSample2021_2>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/local_repos/CoyPU_demo/kg_creation/ips/mappings//translated/CountriesResilienceSample2021_csv_PROJECT2.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://example.com/ns#CountryStatistics/{iso}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:year;
+        rr:objectMap [
+        rr:constant "2021"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:exposure;
+        rr:objectMap [
+        rr:parentTriplesMap <concat2_output1>;
+        rr:joinCondition [
+            rr:child "country_name_de";
+            rr:parent "country_name_de";
+            ];
+        rr:joinCondition [
+            rr:child "country_name_de";
+            rr:parent "country_name_de";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:riskLevel;
+        rr:objectMap [
+        rml:reference "Rang"
+        ]
+    ].
+
+<concat2_output1>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/local_repos/CoyPU_demo/kg_creation/ips/mappings//translated/CountriesResilienceSample2021_csv_OUTPUT1.csv";
+                rml:referenceFormulation ql:CSV
+            ];
+    rr:subjectMap [
+        rml:reference "concat2_output1";
+        rr:termType rr:IRI
+    ].
+

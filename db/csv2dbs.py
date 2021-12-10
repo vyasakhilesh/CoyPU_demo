@@ -1,11 +1,11 @@
 import mysql.connector as mysql
-import csv
 import pandas as pd
 from os import listdir
 from os.path import isfile, join, splitext
 from sqlalchemy import create_engine
 from sqlalchemy import engine as eng
 import ntpath
+import sys
 
 from arg_parser import argumentParser
 
@@ -16,7 +16,7 @@ def getfilesList(path):
     file_path_list = [
         join(path, f)
         for f in listdir(path)
-        if isfile(join(path, f)) and f.endswith(".csv")
+        if isfile(join(path, f)) and (f.endswith(".csv") or f.endswith(".xlsx"))
     ]
     return file_path_list
 
@@ -34,7 +34,7 @@ def connect_to_db_mysql_con(host, port, uname, pwd, dbname):
         passwd=pwd,
         database=dbname,
     )
-    print(db)
+    # print(db)
     return db
 
 
@@ -52,24 +52,51 @@ def create_tables(cursor):
     pass
 
 
+def get_file_type(filename):
+    if splitext(filename)[1] == ".csv":  # csv
+        return ".csv"
+    elif splitext(filename)[1] == ".xlsx":  # xlsx
+        return ".xlsx"
+    else:
+        return None
+
+
+def get_data_from_file(filename, file):
+    if get_file_type(filename) == ".csv":
+        data = pd.read_csv(
+            file, delimiter=",", infer_datetime_format=True, encoding="utf-8"
+        )
+    if get_file_type(filename) == ".xlsx":
+        data = pd.read_excel(file, parse_dates=True)
+
+    return data
+
+
 def df_to_db(path, con):
     file_path_list = getfilesList(path)
-    # print(file_path_list)
 
     for file, filename in zip(
         file_path_list, [path_leaf(path) for path in file_path_list]
     ):
-        data = pd.read_csv(
-            file, delimiter=",", infer_datetime_format=True, encoding="utf-8"
-        )
+        try:
+            data = get_data_from_file(filename, file)
 
-        if isinstance(con, eng.base.Engine):
-            print("Class Type detected :sqlalchemy.engine.base.Engine ")
-            data.to_sql(
-                splitext(filename)[0], con=con, index=False, if_exists="replace"
-            )
-
-        print([(i, j) for i, j in zip(data.columns, data.dtypes)])
+            if data.empty:
+                print("Error: file {} format error".format(filename))
+            elif isinstance(con, eng.base.Engine):
+                # print("Class Type detected :sqlalchemy.engine.base.Engine ")
+                data.to_sql(
+                    splitext(filename)[0], con=con, index=False, if_exists="replace"
+                )
+                print(
+                    "Info: uploaded file {} to the mysql database successfully".format(
+                        filename
+                    )
+                )
+                # print([(i, j) for i, j in zip(data.columns, data.dtypes)])
+        except Exception as e:
+            print("Error: Couldn't upload file {} to the mysql".format(filename))
+            print("Error: df_to_db: {}".format(e))
 
 
 def upload_csvdata(file, cursor):
@@ -84,29 +111,34 @@ def engine_execution(host, port, uname, pwd, dbname, inpath):
 def cursor_exectcution(host, port, uname, pwd, dbname, inpath):
     db = connect_to_db_mysql_con(host, port, uname, pwd, dbname)
     cursor = db.cursor()
-    # cursor.execute("SHOW DATABASES")
-    # print("all databases", cursor.fetchall())
     df_to_db(inpath, cursor)
 
     try:
         create_tables(cursor)
     except mysql.errors.ProgrammingError:
         print("Table already exists")
+    except Exception as e:
+        print("Error: cursor_exectcution {}".format(e))
 
     cursor.execute("SHOW TABLES")
-    print("all tables", cursor.fetchall())
+    print("\n all tables in database", cursor.fetchall())
     db.commit()
     db.close()
 
 
 def main():
     args = argumentParser()
-    engine_execution(
-        args.host, args.port, args.uname, args.pwd, args.dbname, args.inpath
-    )
-    cursor_exectcution(
-        args.host, args.port, args.uname, args.pwd, args.dbname, args.inpath
-    )
+
+    try:
+        engine_execution(
+            args.host, args.port, args.uname, args.pwd, args.dbname, args.inpath
+        )
+
+        cursor_exectcution(
+            args.host, args.port, args.uname, args.pwd, args.dbname, args.inpath
+        )
+    except Exception as e:
+        print("Error: Main: {}".format(e))
 
 
 if __name__ == "__main__":
