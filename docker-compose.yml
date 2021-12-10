@@ -1,0 +1,66 @@
+version: "2"
+services:
+  KGC_Workshop_2021:
+    image: sdmtib/kgc_2021_tutorial:1.0
+    hostname: kgc_workshop_2021
+    container_name: kgc_workshop_2021
+    domainname: kgc_2021
+    volumes:
+      - ./data:/tutorial/data
+    networks:
+      - kgc_2021
+
+  semantic-enrichment:
+    image: eiglesias34/sdmrdffizer:latest
+    hostname: semantic-enrichment
+    container_name: kgc_2021_semantic_enrichment
+    domainname: kgc_2021
+    volumes:
+      - ./data:/app/data
+      - ./configs:/app/configs/
+      - ./rdf/output:/data/output
+      - ./mappings:/app/mappings
+      - ./dragoman:/data/output/Dragoman/
+    networks:
+      - kgc_2021
+
+  kgc_2021_graphdb:
+    image: sdmtib/graphdb:9.8.1-free
+    hostname: kgc_2021_graphdb
+    container_name: kgc_2021_graphdb
+    domainname: kgc_2021
+    volumes:
+      - ./graphdb:/opt/graphdb/home
+    ports:
+      - "7200:7200"
+    networks:
+      - kgc_2021
+
+  kgc_2021_easyrml:
+    image: sdmtib/easyrml:2.0
+    hostname: kgc_2021_easyrml
+    container_name: kgc_2021_easyrml
+    domainname: kgc_2021
+    volumes:
+      - ./easyrml:/easyRML/sources/
+    ports:
+      - "5000:5000"
+    networks:
+      - kgc_2021
+
+  kgc_2021_dragoman:
+    image: sdmtib/dragoman:1.0
+    hostname: kgc_2021_dragoman
+    container_name: kgc_2021_dragoman
+    domainname: kgc_2021
+    volumes:
+      - ./configs:/app/configs/
+      - ./mappings:/data/mapping/
+      - ./dragoman:/data/output/Dragoman/
+      - ./data:/data/
+    networks:
+      - kgc_2021
+
+networks:
+  kgc_2021:
+    external: true

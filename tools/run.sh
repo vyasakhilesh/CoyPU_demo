@@ -1,0 +1,1 @@
+java -jar owl2vowl.jar -iri "https://schema.implisense.com/"
