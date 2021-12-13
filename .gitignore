@@ -5,4 +5,5 @@
 *.xlsx
 datasets/
 .vscode/
-ge
+data_gen/graphs/
+data/datasets/
