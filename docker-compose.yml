@@ -1,66 +1,65 @@
-version: "2"
+version: "1"
 services:
-  KGC_Workshop_2021:
-    image: sdmtib/kgc_2021_tutorial:1.0
-    hostname: kgc_workshop_2021
-    container_name: kgc_workshop_2021
-    domainname: kgc_2021
+  coypu_demo:
+    image: sdmtib/coypu_demo:1.0
+    hostname: coypu_demo
+    container_name: coypu_demo
+    domainname: coypu_demo
     volumes:
-      - ./data:/tutorial/data
+      - ./data:/coypu_demo/data
+      - ./data_gen:/coypu_demo/data_gen
     networks:
-      - kgc_2021
+      - coypu_network
 
   semantic-enrichment:
     image: eiglesias34/sdmrdffizer:latest
-    hostname: semantic-enrichment
-    container_name: kgc_2021_semantic_enrichment
-    domainname: kgc_2021
+    hostname: coypu_semantic-enrichment
+    container_name: coypu_demo_semantic_enrichment
+    domainname: coypu_demo
     volumes:
-      - ./data:/app/data
-      - ./configs:/app/configs/
-      - ./rdf/output:/data/output
-      - ./mappings:/app/mappings
-      - ./dragoman:/data/output/Dragoman/
+      - ./data:/coypu_demo/data
+      - ./knowledge_graph/kg_creation/:/coypu_demo/knowledge_graph/kg_creation/
+      - ./data_gen:/coypu_demo/data_gen
     networks:
-      - kgc_2021
+      - coypu_network
 
-  kgc_2021_graphdb:
+  graphdb:
     image: sdmtib/graphdb:9.8.1-free
-    hostname: kgc_2021_graphdb
-    container_name: kgc_2021_graphdb
-    domainname: kgc_2021
+    hostname: coypu_demo_graphdb
+    container_name: coypu_demo_graphdb
+    domainname: coypu_demo
     volumes:
-      - ./graphdb:/opt/graphdb/home
+      - ./data_gen:/coypu_demo/data_gen/
     ports:
       - "7200:7200"
     networks:
-      - kgc_2021
+      - coypu_network
 
-  kgc_2021_easyrml:
+  easyrml:
     image: sdmtib/easyrml:2.0
-    hostname: kgc_2021_easyrml
-    container_name: kgc_2021_easyrml
-    domainname: kgc_2021
+    hostname: coypu_demo_easyrml
+    container_name: coypu_demo_easyrml
+    domainname: coypu_demo
     volumes:
-      - ./easyrml:/easyRML/sources/
+      - ./data:/coypu_demo/data/
+      - ./knowledge_graph/kg_creation/:/coypu_demo/knowledge_graph/kg_creation/
     ports:
       - "5000:5000"
     networks:
-      - kgc_2021
+      - coypu_network
 
-  kgc_2021_dragoman:
+  dragoman:
     image: sdmtib/dragoman:1.0
-    hostname: kgc_2021_dragoman
-    container_name: kgc_2021_dragoman
-    domainname: kgc_2021
+    hostname: coypu_demo_dragoman
+    container_name: coypu_demo_dragoman
+    domainname: coypu_demo
     volumes:
-      - ./configs:/app/configs/
-      - ./mappings:/data/mapping/
-      - ./dragoman:/data/output/Dragoman/
-      - ./data:/data/
+      - ./data:/coypu_demo/data
+      - ./knowledge_graph/kg_creation/:/coypu_demo/knowledge_graph/kg_creation/
+      - ./data_gen:/coypu_demo/data_gen/
     networks:
-      - kgc_2021
+      - coypu_network
 
 networks:
-  kgc_2021:
+  coypu_network:
     external: true
