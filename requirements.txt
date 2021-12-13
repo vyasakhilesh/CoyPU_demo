@@ -1,1 +1,7 @@
 request
+configparser
+openpyxl
+pandas
+mysql-connector-python
+SQLAlchemy
+PyMySQL
