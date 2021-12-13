@@ -19,7 +19,7 @@ Meta data about shapes
 Asking execution of whole pipeline interactively from the user
 
 
-# Is it worth to create whole pipeline automated 
+## Is it worth to create whole pipeline automated 
 Parts of code can not automated for further development
 
-# Docker to execute all packages
+## Docker to execute all packages
