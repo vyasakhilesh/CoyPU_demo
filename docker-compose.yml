@@ -1,25 +1,53 @@
 version: "1"
 services:
-  coypu_demo:
-    image: sdmtib/coypu_demo:1.0
-    hostname: coypu_demo
-    container_name: coypu_demo
+  # coypu_demo:
+  #   image: akhileshvyas/coypu_demo:latest
+  #   hostname: coypu_demo
+  #   container_name: coypu_demo
+  #   domainname: coypu_demo
+  #   volumes:
+  #     - ./data:/coypu_demo/data
+  #     - ./data_gen:/coypu_demo/data_gen
+  #   networks:
+  #     - coypu_network
+
+  easyrml:
+    image: sdmtib/easyrml:2.0
+    hostname: coypu_demo_easyrml
+    container_name: coypu_demo_easyrml
     domainname: coypu_demo
     volumes:
-      - ./data:/coypu_demo/data
-      - ./data_gen:/coypu_demo/data_gen
+      - ./knowledge_graph/kg_creation/easyRML:/easyRML/sources/
+    ports:
+      - "5000:5000"
     networks:
       - coypu_network
 
   semantic-enrichment:
     image: eiglesias34/sdmrdffizer:latest
-    hostname: coypu_semantic-enrichment
+    hostname: coypu_demo_semantic-enrichment
     container_name: coypu_demo_semantic_enrichment
     domainname: coypu_demo
     volumes:
-      - ./data:/coypu_demo/data
-      - ./knowledge_graph/kg_creation/:/coypu_demo/knowledge_graph/kg_creation/
-      - ./data_gen:/coypu_demo/data_gen
+      - ./data:/data/
+      - ./knowledge_graph/kg_creation/:/knowledge_graph/kg_creation/
+      - ./data_gen:/data_gen
+    ports:
+      - "4000:4000"
+    networks:
+      - coypu_network
+
+  dragoman:
+    image: sdmtib/dragoman:1.0
+    hostname: coypu_demo_dragoman
+    container_name: coypu_demo_dragoman
+    domainname: coypu_demo
+    volumes:
+      - ./data:/data
+      - ./knowledge_graph/kg_creation/:/knowledge_graph/kg_creation/
+      - ./data_gen:/data_gen/
+    ports:
+      - "6000:4000"
     networks:
       - coypu_network
 
@@ -35,30 +63,7 @@ services:
     networks:
       - coypu_network
 
-  easyrml:
-    image: sdmtib/easyrml:2.0
-    hostname: coypu_demo_easyrml
-    container_name: coypu_demo_easyrml
-    domainname: coypu_demo
-    volumes:
-      - ./data:/coypu_demo/data/
-      - ./knowledge_graph/kg_creation/:/coypu_demo/knowledge_graph/kg_creation/
-    ports:
-      - "5000:5000"
-    networks:
-      - coypu_network
-
-  dragoman:
-    image: sdmtib/dragoman:1.0
-    hostname: coypu_demo_dragoman
-    container_name: coypu_demo_dragoman
-    domainname: coypu_demo
-    volumes:
-      - ./data:/coypu_demo/data
-      - ./knowledge_graph/kg_creation/:/coypu_demo/knowledge_graph/kg_creation/
-      - ./data_gen:/coypu_demo/data_gen/
-    networks:
-      - coypu_network
+#  dashbaord:
 
 networks:
   coypu_network:

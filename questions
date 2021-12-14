@@ -1,7 +1,25 @@
-Linking of BlankNode (generted RML:Query)
-Parent_Map: with rr:constant, rr:template , rr:query enabled or 
-After selection of two dataset .. duplicates are removed
-rr:objectMap [rr:constant "2021"; rr:datatype xsd:positiveInteger];
+SDm_rdfizer:
+    Linking of BlankNode (generted RML:Query)
+    Parent_Map: with rr:constant, rr:template , rr:query enabled or 
+    After selection of two dataset .. duplicates are removed
+    rr:objectMap [rr:constant "2021"; rr:datatype xsd:positiveInteger];
+    docker debug mode enabled
+    No error of creation of nt files in docker
+    change docker port 4000 -dragoman on same port
+
+
+easyRML: defaultprefixes file missing in docker
+    Remove upload files after extracting useful info ontology and datafile
+    path - forget to put / in the end
+    need to evalaute for more extensively
+    send json, and click multiple times generate same mapping multiple times
+
+dragoman:
+    change docker port 4000 -dragoman on same port
+    dragoman for RDB data source
+
+General:
+    Path of the updated software
 
 
 
@@ -9,4 +27,4 @@ rr:objectMap [rr:constant "2021"; rr:datatype xsd:positiveInteger];
 Notes
 # id + Ontology+id
 # id with your own ontology even you have url
-#
+# 

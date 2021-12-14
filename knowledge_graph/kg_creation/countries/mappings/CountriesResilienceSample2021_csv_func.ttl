@@ -13,7 +13,7 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 
 <CountriesResilienceSample2021_2> a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/data_off/coypu/ips/data/CountriesResilienceSample2021.csv";
+    rml:logicalSource [ rml:source "/data/datasets/countries/CountriesResilienceSample2021.csv";
 						rml:referenceFormulation ql:CSV 
 						];
     
@@ -38,7 +38,7 @@
     ].
 
 <#CountriesResilienceSample2021_1> a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/data_off/coypu/ips/data/CountriesResilienceSample2021.csv";
+    rml:logicalSource [ rml:source "/data/datasets/countries/CountriesResilienceSample2021.csv";
 						rml:referenceFormulation ql:CSV 
 						];
     
@@ -76,7 +76,7 @@
 
 <#chomp_function>
     fnml:functionValue [
-        rml:logicalSource [ rml:source "/home/tibvyasa/projects/proj_off/data_off/coypu/ips/data/CountriesResilienceSample2021.csv";
+        rml:logicalSource [ rml:source "/data/datasets/countries/CountriesResilienceSample2021.csv";
 						rml:referenceFormulation ql:CSV 
 						];
         rr:predicateObjectMap [
