@@ -61,19 +61,30 @@ def get_file_type(filename):
         return None
 
 
+def get_no_skiprows(filename):
+    skiprows = 0
+    if "emdat_public" in filename:
+        skiprows = 6
+    return skiprows
+
+
 def get_data_from_file(filename, file):
     if get_file_type(filename) == ".csv":
         data = pd.read_csv(
             file, delimiter=",", infer_datetime_format=True, encoding="utf-8"
         )
     if get_file_type(filename) == ".xlsx":
-        data = pd.read_excel(file, parse_dates=True)
+        data = pd.read_excel(file, parse_dates=True, skiprows=get_no_skiprows(filename))
 
     return data
 
 
 def df_to_db(path, con):
     file_path_list = getfilesList(path)
+
+    if len(file_path_list) == 0:
+        print("Error: No file list to upload or wrong path")
+        sys.exit()
 
     for file, filename in zip(
         file_path_list, [path_leaf(path) for path in file_path_list]
@@ -86,7 +97,7 @@ def df_to_db(path, con):
             elif isinstance(con, eng.base.Engine):
                 # print("Class Type detected :sqlalchemy.engine.base.Engine ")
                 data.to_sql(
-                    splitext(filename)[0], con=con, index=False, if_exists="replace"
+                    splitext(filename)[0], con=con, index=False, if_exists="fail"
                 )
                 print(
                     "Info: uploaded file {} to the mysql database successfully".format(

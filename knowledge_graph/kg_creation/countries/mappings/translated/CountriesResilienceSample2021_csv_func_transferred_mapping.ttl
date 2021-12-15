@@ -12,44 +12,9 @@
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 
-<file:///knowledge_graph/kg_creation/countries/mappings/CountriesResilienceSample2021_2>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/countries/mappings/translated/CountriesResilienceSample2021_csv_func_PROJECT1.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "http://example.com/ns#CountryStatistics/{iso}";
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ips:riskLevel;
-        rr:objectMap [
-        rml:reference "Rang"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ips:year;
-        rr:objectMap [
-        rr:constant "2021"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ips:exposure;
-        rr:objectMap [
-        rr:parentTriplesMap <concat2_output1>;
-        rr:joinCondition [
-            rr:child "country_name_de";
-            rr:parent "country_name_de";
-            ];
-        rr:joinCondition [
-            rr:child "country_name_de";
-            rr:parent "country_name_de";
-            ];
-        ];
-    ].
-
 <CountriesResilienceSample2021_1>
     a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/countries/mappings/translated/CountriesResilienceSample2021_csv_func_PROJECT2.csv";
+    rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/countries/mappings/translated/CountriesResilienceSample2021_csv_func_PROJECT1.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
@@ -63,12 +28,6 @@
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate rdfs:label;
-        rr:objectMap [
-        rml:reference "country_name_en"
-        ]
-    ];
-    rr:predicateObjectMap [
         rr:predicate ex:hasCountryStatistics;
         rr:objectMap [
         rr:template  "http://example.com/ns#CountryStatistics/{iso}"
@@ -79,15 +38,52 @@
         rr:objectMap [
         rml:reference "country_name_de"
         ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rml:reference "country_name_en"
+        ]
     ].
 
-<concat2_output1>
+<file:///knowledge_graph/kg_creation/countries/mappings/CountriesResilienceSample2021_2>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/countries/mappings/translated/CountriesResilienceSample2021_csv_func_PROJECT2.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://example.com/ns#CountryStatistics/{iso}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:year;
+        rr:objectMap [
+        rr:constant "2021"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:exposure;
+        rr:objectMap [
+        rr:parentTriplesMap <falcon_entity_function_output1>;
+        rr:joinCondition [
+            rr:child "country_name_de";
+            rr:parent "country_name_de";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:riskLevel;
+        rr:objectMap [
+        rml:reference "Rang"
+        ]
+    ].
+
+<falcon_entity_function_output1>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/countries/mappings/translated/CountriesResilienceSample2021_csv_func_OUTPUT1.csv";
                 rml:referenceFormulation ql:CSV
             ];
     rr:subjectMap [
-        rml:reference "concat2_output1";
+        rml:reference "falcon_entity_function_output1";
         rr:termType rr:IRI
     ].
 

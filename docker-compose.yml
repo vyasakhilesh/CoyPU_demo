@@ -24,7 +24,7 @@ services:
       - coypu_network
 
   semantic-enrichment:
-    image: eiglesias34/sdmrdffizer:latest
+    image: asakor/sdmrdfizier:4.0.1
     hostname: coypu_demo_semantic-enrichment
     container_name: coypu_demo_semantic_enrichment
     domainname: coypu_demo
@@ -46,24 +46,39 @@ services:
       - ./data:/data
       - ./knowledge_graph/kg_creation/:/knowledge_graph/kg_creation/
       - ./data_gen:/data_gen/
+      - ./src/mappings_and_config/configs_func/dragoman_func/:/src/mappings_and_config/configs_func/dragoman_func/
     ports:
       - "6000:4000"
     networks:
       - coypu_network
 
   graphdb:
-    image: sdmtib/graphdb:9.8.1-free
+    # image: ontotext/graphdb:9.3.0-ee
+    image: khaller/graphdb-free:latest
     hostname: coypu_demo_graphdb
     container_name: coypu_demo_graphdb
     domainname: coypu_demo
+    restart: unless-stopped
     volumes:
-      - ./data_gen:/coypu_demo/data_gen/
+      - ./graphdb-home:/opt/graphdb/data/
     ports:
-      - "7200:7200"
+      - 7200:7200
     networks:
       - coypu_network
 
-#  dashbaord:
+#   graphdb:
+#     image: sdmtib/graphdb:9.8.1-free
+#     hostname: coypu_demo_graphdb
+#     container_name: coypu_demo_graphdb
+#     domainname: coypu_demo
+#     volumes:
+#       - ./data_gen:/coypu_demo/data_gen/
+#     ports:
+#       - "7200:7200"
+#     networks:
+#       - coypu_network
+
+# #  dashbaord:
 
 networks:
   coypu_network:

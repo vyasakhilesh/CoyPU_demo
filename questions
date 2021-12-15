@@ -1,4 +1,4 @@
-SDm_rdfizer:
+SDM_Rdfizer:
     Linking of BlankNode (generted RML:Query)
     Parent_Map: with rr:constant, rr:template , rr:query enabled or 
     After selection of two dataset .. duplicates are removed
@@ -6,6 +6,7 @@ SDm_rdfizer:
     docker debug mode enabled
     No error of creation of nt files in docker
     change docker port 4000 -dragoman on same port
+    localhost not working - latest version 4.0.1
 
 
 easyRML: defaultprefixes file missing in docker
@@ -17,9 +18,15 @@ easyRML: defaultprefixes file missing in docker
 dragoman:
     change docker port 4000 -dragoman on same port
     dragoman for RDB data source
+    how to add functions in docker
+    no need to create csv files and if creating separte output folder for files
+    permission of genearted files
 
 General:
     Path of the updated software
+    realtive path - config and mappings files
+    test-code missing
+    link between sdm-rdfizer and dragoman
 
 
 
