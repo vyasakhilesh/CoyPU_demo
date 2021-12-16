@@ -24,6 +24,7 @@ dragoman:
 
 valsparql:
     Not having a public docker image
+    query formation error for graphdb
 
 General:
     Path of the updated software

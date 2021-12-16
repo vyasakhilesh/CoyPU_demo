@@ -89,7 +89,7 @@
         rr:predicateObjectMap [
             rr:predicate ex:value;
             rr:objectMap [ 
-                rml:reference "country_name_de" 
+                rml:reference "country_name_en" 
             ]
         ];
 
