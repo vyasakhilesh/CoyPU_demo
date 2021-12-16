@@ -1,0 +1,33 @@
+{
+    "name": "Country",
+    "targetDef": {
+        "query": "SELECT ?x WHERE {?x a ips:Country}",
+        "class": "ips:Country"
+    },
+    "prefix": {
+        "ips": "<https://schema.implisense.com/#>",
+        "ex": "<http://example.com/ns#>"
+    },
+    "constraintDef": {
+        "conjunctions": [
+            [
+                {
+                    "path": "ips:phone",
+                    "min": 1
+                },
+                {
+                    "path": "ips:phone",
+                    "max": 1
+                },
+                {
+                    "path": "ex:isPartOfContinent",
+                    "min": 1
+                },
+                {
+                    "path": "ex:isPartOfContinent",
+                    "max": 1
+                }
+            ]
+        ]
+    }
+}

@@ -22,11 +22,15 @@ dragoman:
     no need to create csv files and if creating separte output folder for files
     permission of genearted files
 
+valsparql:
+    Not having a public docker image
+
 General:
     Path of the updated software
     realtive path - config and mappings files
     test-code missing
     link between sdm-rdfizer and dragoman
+
 
 
 

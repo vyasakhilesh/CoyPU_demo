@@ -66,19 +66,45 @@ services:
     networks:
       - coypu_network
 
-#   graphdb:
-#     image: sdmtib/graphdb:9.8.1-free
-#     hostname: coypu_demo_graphdb
-#     container_name: coypu_demo_graphdb
-#     domainname: coypu_demo
-#     volumes:
-#       - ./data_gen:/coypu_demo/data_gen/
-#     ports:
-#       - "7200:7200"
-#     networks:
-#       - coypu_network
+  #   graphdb:
+  #     image: sdmtib/graphdb:9.8.1-free
+  #     hostname: coypu_demo_graphdb
+  #     container_name: coypu_demo_graphdb
+  #     domainname: coypu_demo
+  #     volumes:
+  #       - ./data_gen:/coypu_demo/data_gen/
+  #     ports:
+  #       - "7200:7200"
+  #     networks:
+  #       - coypu_network
 
-# #  dashbaord:
+  # #  dashbaord:
+  valsparql:
+    # build: ./code/ # Not
+    image: valsparql
+    hostname: coypu_demo_valsparql
+    container_name: coypu_demo_valsparql
+    domainname: coypu_demo
+    volumes:
+      - ./knowledge_graph/kg_validation/api_configs/:/inputs/api_configs/
+      - ./knowledge_graph/kg_validation/countries/shapes:/inputs/shapes
+    mem_limit: 8g
+    ports:
+      - '5001:5000'
+    networks:
+      - coypu_network
+
+  lubm:
+    image: prohde/virtuoso-opensource-7:7.2.6-alpine
+    hostname: coypu_demo_lubm
+    container_name: coypu_demo_lubm
+    domainname: coypu_demo
+    volumes:
+      - ./data_gen/graphs/countries/graph/:/database/toLoad
+    ports:
+      - '15000:8890'
+    networks:
+      - coypu_network
 
 networks:
   coypu_network:

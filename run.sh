@@ -26,3 +26,6 @@ python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --unam
 
 #graph-db
 
+
+#general
+#docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
