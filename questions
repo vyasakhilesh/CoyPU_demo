@@ -7,7 +7,7 @@ SDM_Rdfizer:
     No error of creation of nt files in docker
     change docker port 4000 -dragoman on same port
     localhost not working - latest version 4.0.1
-    error:
+    error: WikidataURL
         TM: file:///knowledge_graph/kg_creation/countries/mappings/CountriesResilienceSample2021_2
     Traceback (most recent call last):
     File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
@@ -51,6 +51,8 @@ dragoman:
     no need to create csv files and if creating separte output folder for files
     permission of generated files
     why we can not generate config file with ttl file
+    don't preserve datatype : rr:predicate ips:year;
+        rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
 
 valsparql:
     Not having a public docker image

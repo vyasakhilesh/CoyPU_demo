@@ -22,15 +22,15 @@
         rr:class ips:Country
     ];
     rr:predicateObjectMap [
-        rr:predicate rdfs:alternateName;
+        rr:predicate rdfs:label;
         rr:objectMap [
-        rml:reference "country_name_de"
+        rml:reference "country_name_en"
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate ips:isoCode;
+        rr:predicate rdfs:alternateName;
         rr:objectMap [
-        rml:reference "iso"
+        rml:reference "country_name_de"
         ]
     ];
     rr:predicateObjectMap [
@@ -40,9 +40,9 @@
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate rdfs:label;
+        rr:predicate ips:isoCode;
         rr:objectMap [
-        rml:reference "country_name_en"
+        rml:reference "iso"
         ]
     ].
 
@@ -55,20 +55,20 @@
         rr:template "http://example.com/ns#CountryStatistics/{iso}";
     ];
     rr:predicateObjectMap [
+        rr:predicate ips:exposure;
+        rr:objectMap [
+        rr:parentTriplesMap <chomp_output1>;
+        rr:joinCondition [
+            rr:child "Exposure";
+            rr:parent "Exposure";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
         rr:predicate ips:year;
         rr:objectMap [
         rr:constant "2021"
         ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ex:wikiURI;
-        rr:objectMap [
-        rr:parentTriplesMap <falcon_entity_function_output1>;
-        rr:joinCondition [
-            rr:child "country_name_en";
-            rr:parent "country_name_en";
-            ];
-        ];
     ];
     rr:predicateObjectMap [
         rr:predicate ips:riskLevel;
@@ -77,13 +77,13 @@
         ]
     ].
 
-<falcon_entity_function_output1>
+<chomp_output1>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/countries/mappings/translated/CountriesResilienceSample2021_csv_func_OUTPUT1.csv";
                 rml:referenceFormulation ql:CSV
             ];
     rr:subjectMap [
-        rml:reference "falcon_entity_function_output1";
+        rml:reference "chomp_output1";
         rr:termType rr:IRI
     ].
 
