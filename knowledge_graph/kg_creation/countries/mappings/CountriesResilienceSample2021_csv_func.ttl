@@ -32,10 +32,15 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ips:exposure;
-        rr:objectMap <#falcon_entity_function>
+        rr:predicate ex:wikiURI;
+        rr:objectMap <#falcon_entity_function>;
     #    rml:reference "Exposure"
     ].
+
+    # rr:predicateObjectMap [
+    #     rr:predicate ips:exposure;
+    #     rr:objectMap <#chomp_function>;
+    # ].
 
 <#CountriesResilienceSample2021_1> a rr:TriplesMap;
     rml:logicalSource [ rml:source "/data/datasets/countries/CountriesResilienceSample2021.csv";
@@ -92,24 +97,31 @@
                 rml:reference "country_name_en" 
             ]
         ];
+    ].
 
-        # rr:predicateObjectMap [
-        #     rr:predicate ex:value2;
-        #     rr:objectMap [rml:reference "country_name_de"]
-        # ];
-        # rr:predicateObjectMap [
-        #     rr:predicate ex:value;
-        #     rr:objectMap [ 
-        #         rml:reference "country_name_de" 
-        #     ] 
-        # ];  
+<#chomp_function>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source "/data/datasets/countries/CountriesResilienceSample2021.csv";
+						rml:referenceFormulation ql:CSV ];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes;
+            rr:objectMap [ 
+                rr:constant ex:chomp 
+            ]
+        ];
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap [ 
+                rml:reference "Exposure" 
+            ] 
+        ];  
 
-        # rr:predicateObjectMap [
-        #     rr:predicate ex:toremove;
-        #     rr:objectMap [ 
-        #         rr:constant "%" 
-        #     ] 
-        # ];  
+        rr:predicateObjectMap [
+            rr:predicate ex:toremove;
+            rr:objectMap [ 
+                rr:constant "%" 
+            ] 
+        ];  
     ].
 
 

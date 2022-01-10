@@ -7,6 +7,34 @@ SDM_Rdfizer:
     No error of creation of nt files in docker
     change docker port 4000 -dragoman on same port
     localhost not working - latest version 4.0.1
+    error:
+        TM: file:///knowledge_graph/kg_creation/countries/mappings/CountriesResilienceSample2021_2
+    Traceback (most recent call last):
+    File "/usr/lib/python3.6/runpy.py", line 193, in _run_module_as_main
+        "__main__", mod_spec)
+    File "/usr/lib/python3.6/runpy.py", line 85, in _run_code
+        exec(code, run_globals)
+    File "/usr/local/lib/python3.6/dist-packages/rdfizer/__main__.py", line 49, in <module>
+        main()
+    File "/usr/local/lib/python3.6/dist-packages/rdfizer/__main__.py", line 45, in main
+        semantify(config_path)
+    File "/usr/local/lib/python3.6/dist-packages/rdfizer/__init__.py", line 4089, in semantify
+        number_triple += executor.submit(semantify_file, sorted_sources[source_type][source][triples_map], triples_map_list, ",", output_file_descriptor, wr, config[dataset_i]["name"], data).result()
+    File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+        return self.__get_result()
+    File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+        raise self._exception
+    File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+        result = self.fn(*self.args, **self.kwargs)
+    File "/usr/local/lib/python3.6/dist-packages/rdfizer/__init__.py", line 2307, in semantify_file
+        hash_maker(data, triples_map_element, predicate_object_map.object_map)
+    File "/usr/local/lib/python3.6/dist-packages/rdfizer/__init__.py", line 190, in hash_maker
+        for row in parent_data:
+    File "/usr/lib/python3.6/csv.py", line 112, in __next__
+        row = next(self.reader)
+    File "/usr/lib/python3.6/encodings/ascii.py", line 26, in decode
+        return codecs.ascii_decode(input, self.errors)[0]
+    UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 145: ordinal not in range(128)
 
 
 easyRML: defaultprefixes file missing in docker
@@ -14,23 +42,32 @@ easyRML: defaultprefixes file missing in docker
     path - forget to put / in the end
     need to evalaute for more extensively
     send json, and click multiple times generate same mapping multiple times
+    save settings and show details
 
 dragoman:
     change docker port 4000 -dragoman on same port
     dragoman for RDB data source
-    how to add functions in docker
+    how to add functions in docker and know what functions are present
     no need to create csv files and if creating separte output folder for files
-    permission of genearted files
+    permission of generated files
+    why we can not generate config file with ttl file
 
 valsparql:
     Not having a public docker image
+    How to execute shapes- having different locations
     query formation error for graphdb
+    Validation Result Show - What fails in validating contraints
 
 General:
     Path of the updated software
-    realtive path - config and mappings files
+    relative path - config and mappings files
     test-code missing
     link between sdm-rdfizer and dragoman
+
+CSVtoDB:
+    Auto upload of CSV files to DB
+    Mapping of CSV datatypes to DB datatypes
+
 
 
 

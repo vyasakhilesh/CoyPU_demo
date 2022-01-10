@@ -31,7 +31,10 @@ def tolower():
 
 
 def chomp():
-    return global_dic["value"].replace(global_dic["toremove"], "")
+    try:
+        return global_dic["value"].replace(global_dic["toremove"], "")
+    except:
+        return global_dic["value"]
 
 
 headers = {"content-type": "application/json", "Accept-Charset": "UTF-8"}

@@ -81,17 +81,17 @@ services:
       - '5001:5000'
     networks:
       - coypu_network
-  # lubm:
-  #   image: prohde/virtuoso-opensource-7:7.2.6-alpine
-  #   hostname: coypu_demo_lubm
-  #   container_name: coypu_demo_lubm
-  #   domainname: coypu_demo
-  #   volumes:
-  #     - ./data_gen/graphs/countries/graph/:/database/toLoad
-  #   ports:
-  #     - '15000:8890'
-  #   networks:
-  #     - coypu_network
+  lubm:
+    image: prohde/virtuoso-opensource-7:7.2.6-alpine
+    hostname: coypu_demo_lubm
+    container_name: coypu_demo_lubm
+    domainname: coypu_demo
+    volumes:
+      - ./data_gen/graphs/countries/graph/:/database/toLoad
+    ports:
+      - '15000:8890'
+    networks:
+      - coypu_network
   #   graphdb:
   #     image: sdmtib/graphdb:9.8.1-free
   #     hostname: coypu_demo_graphdb
