@@ -22,15 +22,9 @@
         rr:class ips:Country
     ];
     rr:predicateObjectMap [
-        rr:predicate rdfs:label;
+        rr:predicate ips:isoCode;
         rr:objectMap [
-        rml:reference "country_name_en"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate rdfs:alternateName;
-        rr:objectMap [
-        rml:reference "country_name_de"
+        rml:reference "iso"
         ]
     ];
     rr:predicateObjectMap [
@@ -40,9 +34,15 @@
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate ips:isoCode;
+        rr:predicate rdfs:label;
         rr:objectMap [
-        rml:reference "iso"
+        rml:reference "country_name_en"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:alternateName;
+        rr:objectMap [
+        rml:reference "country_name_de"
         ]
     ].
 
@@ -61,6 +61,16 @@
         rr:joinCondition [
             rr:child "Exposure";
             rr:parent "Exposure";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:wikiURI;
+        rr:objectMap [
+        rr:parentTriplesMap <falcon_entity_function_output2>;
+        rr:joinCondition [
+            rr:child "country_name_en";
+            rr:parent "country_name_en";
             ];
         ];
     ];
@@ -84,6 +94,16 @@
             ];
     rr:subjectMap [
         rml:reference "chomp_output1";
+        rr:termType rr:IRI
+    ].
+
+<falcon_entity_function_output2>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/countries/mappings/translated/CountriesResilienceSample2021_csv_func_OUTPUT2.csv";
+                rml:referenceFormulation ql:CSV
+            ];
+    rr:subjectMap [
+        rml:reference "falcon_entity_function_output2";
         rr:termType rr:IRI
     ].
 

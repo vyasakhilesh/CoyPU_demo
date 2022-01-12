@@ -19,7 +19,7 @@
       "eventKG" : "http://eventKG.l3s.uni-hannover.de/schema/",
       "skos" : "http://www.w3.org/2004/02/skos/core#",
       "geo" : "http://www.w3.org/2003/01/geo/wgs84_pos#",
-      "" : "https://schema.implisense.com/#",
+      "" : "https://schema.implisense.com/",
       "xml" : "http://www.w3.org/XML/1998/namespace",
       "schema" : "https://schema.org/",
       "foaf" : "http://xmlns.com/foaf/spec/#",
@@ -29,7 +29,7 @@
       "en" : "Implisense Ontology"
     },
     "iri" : "https://schema.implisense.com/",
-    "version" : "0.6",
+    "version" : "0.8",
     "author" : [ "Nils Steinert" ],
     "labels" : {
       "en" : "ips: Implisense Ontology"
@@ -38,10 +38,10 @@
       "en" : "Ontology to describe companies and their employees, products, production materials, industries, events and relations"
     },
     "other" : {
-      "license" : [ {
-        "identifier" : "license",
+      "priorVersion" : [ {
+        "identifier" : "priorVersion",
         "language" : "undefined",
-        "value" : "https://creativecommons.org/licenses/by/4.0/",
+        "value" : "0.7",
         "type" : "label"
       } ],
       "creator" : [ {
@@ -56,16 +56,34 @@
         "value" : "https://schema.implisense.com/",
         "type" : "label"
       } ],
-      "contributor" : [ {
-        "identifier" : "contributor",
-        "language" : "en",
-        "value" : "Andreas Schäfer",
-        "type" : "label"
-      } ],
       "created" : [ {
         "identifier" : "created",
         "language" : "undefined",
         "value" : "2021-09-06",
+        "type" : "label"
+      } ],
+      "versionInfo" : [ {
+        "identifier" : "versionInfo",
+        "language" : "undefined",
+        "value" : "0.8",
+        "type" : "label"
+      } ],
+      "title" : [ {
+        "identifier" : "title",
+        "language" : "en",
+        "value" : "Implisense Ontology",
+        "type" : "label"
+      } ],
+      "license" : [ {
+        "identifier" : "license",
+        "language" : "undefined",
+        "value" : "https://creativecommons.org/licenses/by/4.0/",
+        "type" : "label"
+      } ],
+      "contributor" : [ {
+        "identifier" : "contributor",
+        "language" : "en",
+        "value" : "Andreas Schäfer",
         "type" : "label"
       } ],
       "rights" : [ {
@@ -83,13 +101,7 @@
       "modified" : [ {
         "identifier" : "modified",
         "language" : "undefined",
-        "value" : "2021-12-02",
-        "type" : "label"
-      } ],
-      "isVersionOf" : [ {
-        "identifier" : "isVersionOf",
-        "language" : "undefined",
-        "value" : "https://schema.implisense.com/",
+        "value" : "2021-01-06",
         "type" : "label"
       } ],
       "preferredNamespaceUri" : [ {
@@ -98,16 +110,10 @@
         "value" : "https://schema.implisense.com/",
         "type" : "label"
       } ],
-      "versionInfo" : [ {
-        "identifier" : "versionInfo",
+      "isVersionOf" : [ {
+        "identifier" : "isVersionOf",
         "language" : "undefined",
-        "value" : "0.6",
-        "type" : "label"
-      } ],
-      "title" : [ {
-        "identifier" : "title",
-        "language" : "en",
-        "value" : "Implisense Ontology",
+        "value" : "https://schema.implisense.com/",
         "type" : "label"
       } ]
     }
@@ -198,38 +204,35 @@
     "id" : "62",
     "type" : "owl:Class"
   }, {
-    "id" : "64",
-    "type" : "rdfs:Datatype"
-  }, {
     "id" : "65",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "68",
+    "id" : "66",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "69",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "26",
-    "type" : "owl:Class"
-  }, {
-    "id" : "43",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "70",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "71",
-    "type" : "rdfs:Datatype"
+    "type" : "owl:Class"
   }, {
     "id" : "72",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "25",
-    "type" : "owl:Class"
-  }, {
     "id" : "39",
     "type" : "rdfs:Datatype"
+  }, {
+    "id" : "73",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "25",
+    "type" : "owl:Class"
   }, {
     "id" : "77",
     "type" : "rdfs:Datatype"
@@ -237,19 +240,7 @@
     "id" : "33",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "79",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "88",
-    "type" : "rdfs:Datatype"
-  }, {
     "id" : "89",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "31",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "85",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "90",
@@ -258,73 +249,97 @@
     "id" : "91",
     "type" : "rdfs:Datatype"
   }, {
+    "id" : "31",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "80",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "92",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "93",
+    "type" : "rdfs:Datatype"
+  }, {
     "id" : "94",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "122",
+    "id" : "86",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "124",
     "type" : "owl:Thing"
+  }, {
+    "id" : "26",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "126",
+    "type" : "owl:Thing"
+  }, {
+    "id" : "128",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "84",
+    "type" : "rdfs:Datatype"
   }, {
     "id" : "2",
     "type" : "owl:Thing"
   }, {
-    "id" : "83",
-    "type" : "rdfs:Literal"
+    "id" : "130",
+    "type" : "rdfs:Datatype"
   }, {
-    "id" : "125",
-    "type" : "owl:Thing"
-  }, {
-    "id" : "110",
+    "id" : "102",
     "type" : "owl:Class"
   }, {
     "id" : "36",
     "type" : "owl:Class"
   }, {
-    "id" : "130",
+    "id" : "68",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "121",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "12",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "131",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "104",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "96",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "67",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "112",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "120",
-    "type" : "owl:Class"
-  }, {
-    "id" : "75",
-    "type" : "rdfs:Datatype"
-  }, {
-    "id" : "41",
+    "id" : "114",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "135",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "137",
+    "id" : "112",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "28",
+    "id" : "99",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "87",
+    "id" : "118",
+    "type" : "owl:Class"
+  }, {
+    "id" : "76",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "41",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "138",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "81",
+    "id" : "140",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "28",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "88",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "141",
+    "type" : "rdfs:Datatype"
+  }, {
+    "id" : "82",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "5",
@@ -333,13 +348,13 @@
     "id" : "16",
     "type" : "owl:Class"
   }, {
-    "id" : "118",
+    "id" : "108",
     "type" : "owl:Class"
   }, {
-    "id" : "109",
+    "id" : "101",
     "type" : "owl:Class"
   }, {
-    "id" : "93",
+    "id" : "96",
     "type" : "rdfs:Datatype"
   }, {
     "id" : "21",
@@ -348,15 +363,15 @@
     "id" : "37",
     "type" : "owl:Class"
   }, {
-    "id" : "100",
+    "id" : "105",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "0",
     "label" : {
-      "IRI-based" : "decimal"
+      "IRI-based" : "string"
     }
   }, {
     "iri" : "https://schema.implisense.com/#Region",
@@ -366,18 +381,21 @@
       "equivalentClass" : [ {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "https://dbpedia.org/ontology/AdministrativeRegion",
+        "value" : "https://schema.org/AdministrativeArea",
         "type" : "label"
       }, {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "https://schema.org/AdministrativeArea",
+        "value" : "https://dbpedia.org/ontology/AdministrativeRegion",
         "type" : "label"
       } ]
     },
     "label" : {
       "IRI-based" : "Region",
       "en" : "Region"
+    },
+    "comment" : {
+      "en" : "an administrative or economic area"
     },
     "id" : "4",
     "superClasses" : [ "5" ]
@@ -389,18 +407,21 @@
       "equivalentClass" : [ {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "https://schema.org/City",
+        "value" : "https://dbpedia.org/ontology/City",
         "type" : "label"
       }, {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "https://dbpedia.org/ontology/City",
+        "value" : "https://schema.org/City",
         "type" : "label"
       } ]
     },
     "label" : {
       "IRI-based" : "City",
       "en" : "City"
+    },
+    "comment" : {
+      "en" : "a city as defined by NUTS or IATA"
     },
     "id" : "8",
     "superClasses" : [ "5" ]
@@ -419,11 +440,11 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "13",
     "label" : {
-      "IRI-based" : "decimal"
+      "IRI-based" : "string"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -433,11 +454,11 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "17",
     "label" : {
-      "IRI-based" : "string"
+      "IRI-based" : "decimal"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
@@ -583,11 +604,11 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "58",
     "label" : {
-      "IRI-based" : "anyURI"
+      "IRI-based" : "string"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
@@ -609,13 +630,6 @@
     },
     "id" : "62"
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "64",
-    "label" : {
-      "IRI-based" : "decimal"
-    }
-  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "65",
@@ -625,7 +639,7 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "68",
+    "id" : "66",
     "label" : {
       "IRI-based" : "string"
     }
@@ -635,6 +649,13 @@
     "id" : "69",
     "label" : {
       "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "70",
+    "label" : {
+      "IRI-based" : "decimal"
     }
   }, {
     "iri" : "https://schema.implisense.com/#Industry",
@@ -655,32 +676,32 @@
     "comment" : {
       "en" : "an industry or economic sector as defined in NACE"
     },
-    "id" : "26"
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "43",
-    "label" : {
-      "IRI-based" : "string"
-    }
+    "id" : "71"
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "70",
+    "id" : "72",
     "label" : {
       "IRI-based" : "decimal"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "71",
+    "id" : "39",
     "label" : {
       "IRI-based" : "string"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "72",
+    "id" : "73",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "43",
     "label" : {
       "IRI-based" : "string"
     }
@@ -712,13 +733,6 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "39",
-    "label" : {
-      "IRI-based" : "string"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "77",
     "label" : {
       "IRI-based" : "string"
@@ -731,37 +745,9 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "79",
-    "label" : {
-      "IRI-based" : "dateTimeStamp"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "88",
-    "label" : {
-      "IRI-based" : "decimal"
-    }
-  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "89",
-    "label" : {
-      "IRI-based" : "string"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "31",
-    "label" : {
-      "IRI-based" : "decimal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "85",
     "label" : {
       "IRI-based" : "string"
     }
@@ -780,6 +766,34 @@
       "IRI-based" : "string"
     }
   }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "31",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "80",
+    "label" : {
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "92",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "93",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
     "id" : "94",
@@ -787,11 +801,46 @@
       "IRI-based" : "string"
     }
   }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "86",
+    "label" : {
+      "IRI-based" : "string"
+    }
+  }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
     "baseIri" : "http://owl2vowl.de",
-    "id" : "122",
+    "id" : "124",
     "label" : {
       "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "26",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2002/07/owl#Thing",
+    "baseIri" : "http://owl2vowl.de",
+    "id" : "126",
+    "label" : {
+      "undefined" : "Thing"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "128",
+    "label" : {
+      "IRI-based" : "decimal"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "84",
+    "label" : {
+      "IRI-based" : "decimal"
     }
   }, {
     "iri" : "http://www.w3.org/2002/07/owl#Thing",
@@ -801,18 +850,11 @@
       "undefined" : "Thing"
     }
   }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "id" : "83",
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "130",
     "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2002/07/owl#Thing",
-    "baseIri" : "http://owl2vowl.de",
-    "id" : "125",
-    "label" : {
-      "undefined" : "Thing"
+      "IRI-based" : "string"
     }
   }, {
     "iri" : "https://schema.implisense.com/#Product",
@@ -828,12 +870,12 @@
       "seeAlso" : [ {
         "identifier" : "seeAlso",
         "language" : "undefined",
-        "value" : "https://dbpedia.org/page/Category:Goods_(economics)",
+        "value" : "https://dbpedia.org/page/Material",
         "type" : "label"
       }, {
         "identifier" : "seeAlso",
         "language" : "undefined",
-        "value" : "https://dbpedia.org/page/Material",
+        "value" : "https://dbpedia.org/page/Category:Goods_(economics)",
         "type" : "label"
       } ]
     },
@@ -841,11 +883,11 @@
       "IRI-based" : "Product",
       "en" : "Product"
     },
-    "subClasses" : [ "120", "118", "109" ],
+    "subClasses" : [ "118", "108", "101" ],
     "comment" : {
       "en" : "a product, service, production material or refined resource"
     },
-    "id" : "110"
+    "id" : "102"
   }, {
     "iri" : "https://schema.implisense.com/#News",
     "baseIri" : "https://schema.implisense.com/",
@@ -860,11 +902,18 @@
     "id" : "36",
     "superClasses" : [ "35" ]
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
+    "iri" : "http://www.w3.org/2001/XMLSchema#positiveInteger",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "130",
+    "id" : "68",
     "label" : {
-      "IRI-based" : "decimal"
+      "IRI-based" : "positiveInteger"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "121",
+    "label" : {
+      "IRI-based" : "string"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
@@ -874,37 +923,30 @@
       "IRI-based" : "decimal"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
+    "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "131",
+    "id" : "114",
     "label" : {
-      "IRI-based" : "string"
+      "IRI-based" : "dateTimeStamp"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#anyURI",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "135",
+    "label" : {
+      "IRI-based" : "anyURI"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "104",
+    "id" : "112",
     "label" : {
       "IRI-based" : "decimal"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "96",
-    "label" : {
-      "IRI-based" : "string"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#positiveInteger",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "67",
-    "label" : {
-      "IRI-based" : "positiveInteger"
-    }
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#string",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "112",
+    "id" : "99",
     "label" : {
       "IRI-based" : "string"
     }
@@ -932,12 +974,12 @@
     "comment" : {
       "en" : "a production material"
     },
-    "id" : "120",
-    "superClasses" : [ "110" ]
+    "id" : "118",
+    "superClasses" : [ "102" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "75",
+    "id" : "76",
     "label" : {
       "IRI-based" : "string"
     }
@@ -951,14 +993,14 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "135",
+    "id" : "138",
     "label" : {
       "IRI-based" : "dateTimeStamp"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "137",
+    "id" : "140",
     "label" : {
       "IRI-based" : "string"
     }
@@ -972,21 +1014,21 @@
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "87",
+    "id" : "88",
     "label" : {
       "IRI-based" : "string"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "138",
+    "id" : "141",
     "label" : {
       "IRI-based" : "string"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#string",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "81",
+    "id" : "82",
     "label" : {
       "IRI-based" : "string"
     }
@@ -998,12 +1040,12 @@
       "equivalentClass" : [ {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "https://dbpedia.org/ontology/Place",
+        "value" : "https://schema.org/Place",
         "type" : "label"
       }, {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "https://schema.org/Place",
+        "value" : "https://dbpedia.org/ontology/Place",
         "type" : "label"
       } ],
       "seeAlso" : [ {
@@ -1017,7 +1059,7 @@
       "IRI-based" : "Location",
       "en" : "Location"
     },
-    "subClasses" : [ "8", "100", "4" ],
+    "subClasses" : [ "8", "105", "4" ],
     "comment" : {
       "en" : "a geo-political entity"
     },
@@ -1030,17 +1072,17 @@
       "equivalentClass" : [ {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "http://xmlns.com/foaf/0.1/Person",
-        "type" : "label"
-      }, {
-        "identifier" : "equivalentClass",
-        "language" : "undefined",
         "value" : "https://dbpedia.org/ontology/Person",
         "type" : "label"
       }, {
         "identifier" : "equivalentClass",
         "language" : "undefined",
         "value" : "https://schema.org/Person",
+        "type" : "label"
+      }, {
+        "identifier" : "equivalentClass",
+        "language" : "undefined",
+        "value" : "http://xmlns.com/foaf/0.1/Person",
         "type" : "label"
       } ]
     },
@@ -1071,8 +1113,8 @@
     "comment" : {
       "en" : "a production material or refined resource"
     },
-    "id" : "118",
-    "superClasses" : [ "110" ]
+    "id" : "108",
+    "superClasses" : [ "102" ]
   }, {
     "iri" : "https://schema.implisense.com/#Commodity",
     "baseIri" : "https://schema.implisense.com/",
@@ -1084,12 +1126,12 @@
     "comment" : {
       "en" : "a commodity good or production material"
     },
-    "id" : "109",
-    "superClasses" : [ "110" ]
+    "id" : "101",
+    "superClasses" : [ "102" ]
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#decimal",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "93",
+    "id" : "96",
     "label" : {
       "IRI-based" : "decimal"
     }
@@ -1121,12 +1163,12 @@
       "equivalentClass" : [ {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "https://dbpedia.org/ontology/Country",
+        "value" : "https://schema.org/Country",
         "type" : "label"
       }, {
         "identifier" : "equivalentClass",
         "language" : "undefined",
-        "value" : "https://schema.org/Country",
+        "value" : "https://dbpedia.org/ontology/Country",
         "type" : "label"
       } ]
     },
@@ -1137,7 +1179,7 @@
     "comment" : {
       "en" : "a country as defined in ISO 3166"
     },
-    "id" : "100",
+    "id" : "105",
     "superClasses" : [ "5" ]
   } ],
   "property" : [ {
@@ -1204,34 +1246,34 @@
     "id" : "63",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "66",
+    "id" : "64",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "73",
-    "type" : "owl:objectProperty"
+    "id" : "67",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "74",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
-    "id" : "76",
+    "id" : "75",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "78",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "80",
+    "id" : "79",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "82",
+    "id" : "81",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "84",
+    "id" : "83",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "86",
+    "id" : "85",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "92",
+    "id" : "87",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "95",
@@ -1243,29 +1285,26 @@
     "id" : "98",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "99",
+    "id" : "100",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "101",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "102",
-    "type" : "owl:datatypeProperty"
-  }, {
     "id" : "103",
-    "type" : "owl:datatypeProperty"
+    "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "105",
-    "type" : "owl:datatypeProperty"
+    "id" : "104",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "106",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "107",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "108",
-    "type" : "rdfs:SubClassOf"
+    "id" : "109",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "110",
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "111",
     "type" : "owl:datatypeProperty"
@@ -1273,14 +1312,11 @@
     "id" : "113",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "114",
+    "id" : "115",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "115",
-    "type" : "rdfs:SubClassOf"
-  }, {
     "id" : "116",
-    "type" : "rdfs:SubClassOf"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "117",
     "type" : "rdfs:SubClassOf"
@@ -1288,46 +1324,43 @@
     "id" : "119",
     "type" : "rdfs:SubClassOf"
   }, {
-    "id" : "121",
+    "id" : "120",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "122",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "123",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "124",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "126",
-    "type" : "owl:datatypeProperty"
+    "id" : "125",
+    "type" : "rdfs:SubClassOf"
   }, {
     "id" : "127",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "128",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "129",
     "type" : "owl:datatypeProperty"
   }, {
+    "id" : "131",
+    "type" : "owl:datatypeProperty"
+  }, {
     "id" : "132",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "133",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "134",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "136",
     "type" : "owl:datatypeProperty"
   }, {
+    "id" : "137",
+    "type" : "owl:objectProperty"
+  }, {
     "id" : "139",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "140",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "141",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "142",
@@ -1337,10 +1370,10 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "144",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "145",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "146",
     "type" : "owl:datatypeProperty"
@@ -1349,25 +1382,25 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "148",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "149",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "150",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "151",
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "152",
-    "type" : "owl:datatypeProperty"
+    "type" : "owl:objectProperty"
   }, {
     "id" : "153",
-    "type" : "owl:objectProperty"
+    "type" : "owl:datatypeProperty"
   }, {
     "id" : "154",
     "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "150",
+    "type" : "owl:objectProperty"
   }, {
     "id" : "155",
     "type" : "owl:datatypeProperty"
@@ -1376,6 +1409,21 @@
     "type" : "owl:datatypeProperty"
   }, {
     "id" : "157",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "158",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "159",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "160",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "161",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "162",
     "type" : "owl:datatypeProperty"
   } ],
   "propertyAttribute" : [ {
@@ -1414,6 +1462,9 @@
       "en" : "name"
     },
     "domain" : "2",
+    "comment" : {
+      "en" : "the name of a thing"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "6"
   }, {
@@ -1430,7 +1481,7 @@
   }, {
     "iri" : "https://schema.implisense.com/#role",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "17",
+    "range" : "10",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -1471,6 +1522,9 @@
       "en" : "url"
     },
     "domain" : "2",
+    "comment" : {
+      "en" : "the url of a website"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "20"
   }, {
@@ -1483,7 +1537,7 @@
     },
     "domain" : "25",
     "comment" : {
-      "en" : "the sector or industry a company is part of"
+      "en" : "the country, sector or industry a company is active in"
     },
     "attributes" : [ "object" ],
     "id" : "24"
@@ -1504,7 +1558,7 @@
   }, {
     "iri" : "https://schema.implisense.com/#familyName",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "9",
+    "range" : "0",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -1518,6 +1572,9 @@
       "en" : "familyName"
     },
     "domain" : "16",
+    "comment" : {
+      "en" : "the family name of a person"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "29"
   }, {
@@ -1525,21 +1582,15 @@
     "baseIri" : "https://schema.implisense.com/",
     "range" : "31",
     "annotations" : {
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "en",
-        "value" : "a latitude as defined in WGS 84",
-        "type" : "label"
-      } ],
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
         "language" : "undefined",
-        "value" : "https://schema.org/latitude",
+        "value" : "https://www.geonames.org/ontology#lat",
         "type" : "label"
       }, {
         "identifier" : "equivalentProperty",
         "language" : "undefined",
-        "value" : "https://www.geonames.org/ontology#lat",
+        "value" : "https://schema.org/latitude",
         "type" : "label"
       } ],
       "seeAlso" : [ {
@@ -1554,6 +1605,9 @@
       "en" : "latitude"
     },
     "domain" : "2",
+    "comment" : {
+      "en" : "a latitude as defined in WGS 84"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "30"
   }, {
@@ -1587,6 +1641,9 @@
       "en" : "dissolutionDate"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "the dissolution date of a company"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "34"
   }, {
@@ -1626,6 +1683,9 @@
       "en" : "legalForm"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "the legal form of a company"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "42"
   }, {
@@ -1717,12 +1777,15 @@
       "en" : "givenName"
     },
     "domain" : "16",
+    "comment" : {
+      "en" : "the given name of a person"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "60"
   }, {
     "iri" : "https://schema.implisense.com/#zip",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "22",
+    "range" : "14",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -1736,12 +1799,15 @@
       "en" : "zip"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "a zip code"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "61"
   }, {
     "iri" : "https://schema.implisense.com/#vat",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "10",
+    "range" : "9",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -1755,19 +1821,39 @@
       "en" : "vat"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "the vat id of a company"
+    },
     "attributes" : [ "functional", "datatype" ],
     "id" : "63"
   }, {
+    "iri" : "https://schema.implisense.com/#language",
+    "baseIri" : "https://schema.implisense.com/",
+    "range" : "22",
+    "label" : {
+      "IRI-based" : "language",
+      "en" : "language"
+    },
+    "domain" : "2",
+    "comment" : {
+      "en" : "a language spoken in a country or by a person"
+    },
+    "attributes" : [ "functional", "datatype" ],
+    "id" : "64"
+  }, {
     "iri" : "https://schema.implisense.com/#year",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "67",
+    "range" : "68",
     "label" : {
       "IRI-based" : "year",
       "en" : "year"
     },
     "domain" : "2",
+    "comment" : {
+      "en" : "a year (like 2021 or 1986)"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "66"
+    "id" : "67"
   }, {
     "iri" : "https://schema.implisense.com/#sources",
     "baseIri" : "https://schema.implisense.com/",
@@ -1778,25 +1864,28 @@
     },
     "domain" : "2",
     "comment" : {
-      "en" : "a product, material, resource or service sourced from a company, country or industry"
+      "en" : "rename to isSuppliedBy?"
     },
     "attributes" : [ "object" ],
-    "id" : "73"
+    "id" : "74"
   }, {
     "iri" : "https://schema.implisense.com/#capital",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "75",
+    "range" : "76",
     "label" : {
       "IRI-based" : "capital",
       "en" : "capital"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "the capital of a company"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "74"
+    "id" : "75"
   }, {
     "iri" : "https://schema.implisense.com/#ebidCode",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "72",
+    "range" : "73",
     "annotations" : {
       "seeAlso" : [ {
         "identifier" : "seeAlso",
@@ -1814,11 +1903,11 @@
       "en" : "the European Business Identifier of a company"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "76"
+    "id" : "78"
   }, {
     "iri" : "https://schema.implisense.com/#birthday",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "79",
+    "range" : "80",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -1832,12 +1921,15 @@
       "en" : "birthday"
     },
     "domain" : "16",
+    "comment" : {
+      "en" : "the birthday of a person"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "78"
+    "id" : "79"
   }, {
     "iri" : "https://schema.implisense.com/#hrType",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "81",
+    "range" : "82",
     "label" : {
       "IRI-based" : "hrType",
       "en" : "hrType"
@@ -1847,11 +1939,11 @@
       "en" : "the type of a Handelsregisterbekanntmachung (HRA, HRB, AR, GnR, PR or VR)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "80"
+    "id" : "81"
   }, {
     "iri" : "https://schema.implisense.com/#currency",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "83",
+    "range" : "84",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -1866,14 +1958,14 @@
     },
     "domain" : "2",
     "comment" : {
-      "en" : "a monetary value's currency \n(range removed due to unintentional inferred equivalence to owl:bottomDataProperty)"
+      "en" : "the currency of a country or monetary value"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "82"
+    "id" : "83"
   }, {
     "iri" : "https://schema.implisense.com/#publisher",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "85",
+    "range" : "86",
     "label" : {
       "IRI-based" : "publisher",
       "en" : "publisher"
@@ -1883,11 +1975,11 @@
       "en" : "the publisher of an event"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "84"
+    "id" : "85"
   }, {
     "iri" : "https://schema.implisense.com/#cpaCode",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "87",
+    "range" : "88",
     "label" : {
       "IRI-based" : "cpaCode",
       "en" : "cpaCode"
@@ -1897,11 +1989,11 @@
       "en" : "a product code as defined in CPA"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "86"
+    "id" : "87"
   }, {
     "iri" : "https://schema.implisense.com/#balanceSheetTotal",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "93",
+    "range" : "96",
     "label" : {
       "IRI-based" : "balanceSheetTotal",
       "en" : "balanceSheetTotal"
@@ -1911,11 +2003,16 @@
       "en" : "the balance sheet total of a company (at a specified date in a specified currency)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "92"
+    "id" : "95"
+  }, {
+    "range" : "5",
+    "domain" : "8",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "97"
   }, {
     "iri" : "https://schema.implisense.com/#email",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "96",
+    "range" : "99",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -1933,12 +2030,22 @@
       "en" : "an email address"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "95"
+    "id" : "98"
+  }, {
+    "range" : "102",
+    "domain" : "101",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "100"
   }, {
     "range" : "5",
     "domain" : "4",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "97"
+    "id" : "103"
+  }, {
+    "range" : "5",
+    "domain" : "105",
+    "attributes" : [ "object", "anonymous" ],
+    "id" : "104"
   }, {
     "iri" : "https://schema.implisense.com/#active",
     "baseIri" : "https://schema.implisense.com/",
@@ -1952,12 +2059,12 @@
       "en" : "the economic status of a company (active or inactive)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "98"
+    "id" : "106"
   }, {
-    "range" : "5",
-    "domain" : "100",
+    "range" : "102",
+    "domain" : "108",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "99"
+    "id" : "107"
   }, {
     "iri" : "https://schema.implisense.com/#alertScore",
     "baseIri" : "https://schema.implisense.com/",
@@ -1971,7 +2078,7 @@
       "en" : "the alert level score of an event (like 0 / 1 / 2 or green / orange / red)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "101"
+    "id" : "109"
   }, {
     "iri" : "https://schema.implisense.com/#exposure",
     "baseIri" : "https://schema.implisense.com/",
@@ -1982,22 +2089,36 @@
     },
     "domain" : "2",
     "attributes" : [ "functional", "datatype" ],
-    "id" : "102"
+    "id" : "110"
   }, {
     "iri" : "https://schema.implisense.com/#copingCapability",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "104",
+    "range" : "112",
     "label" : {
       "IRI-based" : "copingCapability",
       "en" : "copingCapability"
     },
     "domain" : "2",
     "attributes" : [ "functional", "datatype" ],
-    "id" : "103"
+    "id" : "111"
+  }, {
+    "iri" : "https://schema.implisense.com/#timestamp",
+    "baseIri" : "https://schema.implisense.com/",
+    "range" : "114",
+    "label" : {
+      "IRI-based" : "timestamp",
+      "en" : "timestamp"
+    },
+    "domain" : "35",
+    "comment" : {
+      "en" : "the timestamp of an event"
+    },
+    "attributes" : [ "functional", "datatype" ],
+    "id" : "113"
   }, {
     "iri" : "https://schema.implisense.com/#price",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "90",
+    "range" : "92",
     "label" : {
       "IRI-based" : "price",
       "en" : "price"
@@ -2007,7 +2128,7 @@
       "en" : "a product price (at a specified date in a specified currency)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "105"
+    "id" : "115"
   }, {
     "iri" : "https://schema.implisense.com/#supplies",
     "baseIri" : "https://schema.implisense.com/",
@@ -2021,21 +2142,21 @@
       "en" : "a product, material, resource or service supplied by a company, country or industry"
     },
     "attributes" : [ "object" ],
-    "id" : "106"
+    "id" : "116"
   }, {
-    "range" : "5",
-    "domain" : "8",
+    "range" : "102",
+    "domain" : "118",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "107"
+    "id" : "117"
   }, {
-    "range" : "110",
-    "domain" : "109",
+    "range" : "35",
+    "domain" : "37",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "108"
+    "id" : "119"
   }, {
     "iri" : "https://schema.implisense.com/#title",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "112",
+    "range" : "121",
     "annotations" : {
       "seeAlso" : [ {
         "identifier" : "seeAlso",
@@ -2058,11 +2179,11 @@
       "en" : "a honorific title of a person"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "111"
+    "id" : "120"
   }, {
     "iri" : "https://schema.implisense.com/#alternateName",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "59",
+    "range" : "58",
     "annotations" : {
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -2076,12 +2197,15 @@
       "en" : "alternateName"
     },
     "domain" : "2",
+    "comment" : {
+      "en" : "an alternate name of a thing"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "113"
+    "id" : "122"
   }, {
     "iri" : "https://schema.implisense.com/#description",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "14",
+    "range" : "13",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -2095,28 +2219,16 @@
       "en" : "description"
     },
     "domain" : "2",
+    "comment" : {
+      "en" : "the description of a thing"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "114"
-  }, {
-    "range" : "35",
-    "domain" : "37",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "115"
+    "id" : "123"
   }, {
     "range" : "35",
     "domain" : "36",
     "attributes" : [ "object", "anonymous" ],
-    "id" : "116"
-  }, {
-    "range" : "110",
-    "domain" : "118",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "117"
-  }, {
-    "range" : "110",
-    "domain" : "120",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "119"
+    "id" : "125"
   }, {
     "iri" : "https://schema.implisense.com/#leiCode",
     "baseIri" : "https://schema.implisense.com/",
@@ -2138,33 +2250,11 @@
       "en" : "a legal entity identifier as defined in ISO 17442"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "121"
-  }, {
-    "iri" : "https://schema.implisense.com/#subjectOf",
-    "baseIri" : "https://schema.implisense.com/",
-    "range" : "35",
-    "annotations" : {
-      "equivalentProperty" : [ {
-        "identifier" : "equivalentProperty",
-        "language" : "undefined",
-        "value" : "https://schema.org/subjectOf",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "subjectOf",
-      "en" : "subjectOf"
-    },
-    "domain" : "122",
-    "comment" : {
-      "en" : "the publisher or subject of an event"
-    },
-    "attributes" : [ "object" ],
-    "id" : "123"
+    "id" : "127"
   }, {
     "iri" : "https://schema.implisense.com/#riskLevel",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "18",
+    "range" : "17",
     "annotations" : {
       "seeAlso" : [ {
         "identifier" : "seeAlso",
@@ -2177,13 +2267,16 @@
       "IRI-based" : "riskLevel",
       "en" : "riskLevel"
     },
-    "domain" : "100",
+    "domain" : "2",
+    "comment" : {
+      "en" : "the risk level of a country as defined by Weltrisikobericht"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "124"
+    "id" : "129"
   }, {
     "iri" : "https://schema.implisense.com/#hsCode",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "71",
+    "range" : "66",
     "label" : {
       "IRI-based" : "hsCode",
       "en" : "hsCode"
@@ -2193,7 +2286,7 @@
       "en" : "a product code as defined in the EU harmonized system"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "126"
+    "id" : "131"
   }, {
     "iri" : "https://schema.implisense.com/#hrCourt",
     "baseIri" : "https://schema.implisense.com/",
@@ -2207,7 +2300,7 @@
       "en" : "the German court where a company is registered"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "127"
+    "id" : "132"
   }, {
     "iri" : "https://schema.implisense.com/#eventStatus",
     "baseIri" : "https://schema.implisense.com/",
@@ -2221,45 +2314,22 @@
       "en" : "the status of an event (current or past)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "128"
+    "id" : "133"
   }, {
     "iri" : "https://schema.implisense.com/#adaptiveCapability",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "64",
+    "range" : "70",
     "label" : {
       "IRI-based" : "adaptiveCapability",
       "en" : "adaptiveCapability"
     },
     "domain" : "2",
     "attributes" : [ "functional", "datatype" ],
-    "id" : "129"
-  }, {
-    "iri" : "https://schema.implisense.com/#about",
-    "inverse" : "123",
-    "baseIri" : "https://schema.implisense.com/",
-    "range" : "122",
-    "annotations" : {
-      "equivalentProperty" : [ {
-        "identifier" : "equivalentProperty",
-        "language" : "undefined",
-        "value" : "https://schema.org/about",
-        "type" : "label"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "about",
-      "en" : "about"
-    },
-    "domain" : "35",
-    "comment" : {
-      "en" : "the thing an event is about"
-    },
-    "attributes" : [ "object" ],
-    "id" : "132"
+    "id" : "134"
   }, {
     "iri" : "https://schema.implisense.com/#socialMedia",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "58",
+    "range" : "135",
     "label" : {
       "IRI-based" : "socialMedia",
       "en" : "socialMedia"
@@ -2269,21 +2339,21 @@
       "en" : "a company social media profile url"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "133"
+    "id" : "136"
   }, {
     "iri" : "https://schema.implisense.com/#isPartOf",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "25",
+    "range" : "2",
     "label" : {
       "IRI-based" : "isPartOf",
       "en" : "isPartOf"
     },
-    "domain" : "25",
+    "domain" : "2",
     "comment" : {
-      "en" : "the group or concern affilitations of a company"
+      "en" : "the entity another entity is part of"
     },
     "attributes" : [ "object" ],
-    "id" : "134"
+    "id" : "137"
   }, {
     "iri" : "https://schema.implisense.com/#foundingDate",
     "baseIri" : "https://schema.implisense.com/",
@@ -2301,8 +2371,11 @@
       "en" : "foundingDate"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "the founding date of a company"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "136"
+    "id" : "139"
   }, {
     "iri" : "https://schema.implisense.com/#isoCode",
     "baseIri" : "https://schema.implisense.com/",
@@ -2316,11 +2389,11 @@
       "en" : "a country code as defined in ISO 3166"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "139"
+    "id" : "142"
   }, {
     "iri" : "https://schema.implisense.com/#revenue",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "0",
+    "range" : "93",
     "annotations" : {
       "seeAlso" : [ {
         "identifier" : "seeAlso",
@@ -2335,14 +2408,14 @@
     },
     "domain" : "25",
     "comment" : {
-      "en" : "the revenue of a company (at a specified date in a specified currency)"
+      "en" : "the revenue of a company (for a specified year in a specified currency)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "140"
+    "id" : "143"
   }, {
     "iri" : "https://schema.implisense.com/#infrastructureType",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "131",
+    "range" : "130",
     "label" : {
       "IRI-based" : "infrastructureType",
       "en" : "infrastructureType"
@@ -2352,22 +2425,25 @@
       "en" : "the type of critical infrastructure (like airport, port or powerplant)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "141"
+    "id" : "144"
   }, {
     "iri" : "https://schema.implisense.com/#percentage",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "13",
+    "range" : "18",
     "label" : {
       "IRI-based" : "percentage",
       "en" : "percentage"
     },
     "domain" : "2",
+    "comment" : {
+      "en" : "a percentage value"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "142"
+    "id" : "145"
   }, {
     "iri" : "https://schema.implisense.com/#hrId",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "55",
+    "range" : "59",
     "label" : {
       "IRI-based" : "hrId",
       "en" : "hrId"
@@ -2377,21 +2453,21 @@
       "en" : "a German company register id"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "143"
+    "id" : "146"
   }, {
     "iri" : "https://schema.implisense.com/#impacts",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "2",
+    "range" : "124",
     "label" : {
       "IRI-based" : "impacts",
       "en" : "impacts"
     },
-    "domain" : "2",
+    "domain" : "35",
     "comment" : {
-      "en" : "the thing impacted by an event or trend"
+      "en" : "the thing impacted by an event"
     },
     "attributes" : [ "object" ],
-    "id" : "144"
+    "id" : "147"
   }, {
     "iri" : "https://schema.implisense.com/#usedIn",
     "baseIri" : "https://schema.implisense.com/",
@@ -2405,7 +2481,30 @@
       "en" : "a product, material or resource used in production of another material, resource or product"
     },
     "attributes" : [ "object" ],
-    "id" : "145"
+    "id" : "148"
+  }, {
+    "iri" : "https://schema.implisense.com/#isAbout",
+    "inverse" : "150",
+    "baseIri" : "https://schema.implisense.com/",
+    "range" : "124",
+    "annotations" : {
+      "equivalentProperty" : [ {
+        "identifier" : "equivalentProperty",
+        "language" : "undefined",
+        "value" : "https://schema.org/about",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isAbout",
+      "en" : "isAbout"
+    },
+    "domain" : "35",
+    "comment" : {
+      "en" : "the thing an event is about"
+    },
+    "attributes" : [ "object" ],
+    "id" : "149"
   }, {
     "iri" : "https://schema.implisense.com/#numberOfEmployees",
     "baseIri" : "https://schema.implisense.com/",
@@ -2414,12 +2513,12 @@
       "seeAlso" : [ {
         "identifier" : "seeAlso",
         "language" : "undefined",
-        "value" : "http://dbpedia.org/property/numEmployees",
+        "value" : "https://schema.org/numberOfEmployees",
         "type" : "label"
       }, {
         "identifier" : "seeAlso",
         "language" : "undefined",
-        "value" : "https://schema.org/numberOfEmployees",
+        "value" : "http://dbpedia.org/property/numEmployees",
         "type" : "label"
       } ]
     },
@@ -2432,7 +2531,7 @@
       "en" : "the number of employees of a company (in a specified year)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "146"
+    "id" : "151"
   }, {
     "iri" : "https://schema.implisense.com/#locatedAt",
     "baseIri" : "https://schema.implisense.com/",
@@ -2447,18 +2546,18 @@
     },
     "label" : {
       "IRI-based" : "locatedAt",
-      "undefined" : "locatedAt"
+      "en" : "locatedAt"
     },
-    "domain" : "125",
+    "domain" : "126",
     "comment" : {
       "en" : "the location an event, company or critical infrastructure is located at"
     },
     "attributes" : [ "object" ],
-    "id" : "147"
+    "id" : "152"
   }, {
     "iri" : "https://schema.implisense.com/#longitude",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "130",
+    "range" : "128",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -2487,29 +2586,57 @@
       "en" : "a longitude as defined in WGS 84"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "148"
+    "id" : "153"
   }, {
     "iri" : "https://schema.implisense.com/#date",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "135",
+    "range" : "138",
     "label" : {
       "IRI-based" : "date",
       "en" : "date"
     },
     "domain" : "2",
+    "comment" : {
+      "en" : "a date (like 2021-12-24T18:30:00-02:00)"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "149"
+    "id" : "154"
+  }, {
+    "iri" : "https://schema.implisense.com/#isSubjectOf",
+    "baseIri" : "https://schema.implisense.com/",
+    "range" : "35",
+    "annotations" : {
+      "equivalentProperty" : [ {
+        "identifier" : "equivalentProperty",
+        "language" : "undefined",
+        "value" : "https://schema.org/subjectOf",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "isSubjectOf",
+      "en" : "isSubjectOf"
+    },
+    "domain" : "124",
+    "comment" : {
+      "en" : "the publisher or subject of an event"
+    },
+    "attributes" : [ "object" ],
+    "id" : "150"
   }, {
     "iri" : "https://schema.implisense.com/#profit",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "88",
+    "range" : "90",
     "label" : {
       "IRI-based" : "profit",
       "en" : "profit"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "the profit of a company (for a specified year in a specified currency)"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "150"
+    "id" : "155"
   }, {
     "iri" : "https://schema.implisense.com/#street",
     "baseIri" : "https://schema.implisense.com/",
@@ -2527,12 +2654,15 @@
       "en" : "street"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "a street address"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "151"
+    "id" : "156"
   }, {
     "iri" : "https://schema.implisense.com/#legalName",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "137",
+    "range" : "140",
     "annotations" : {
       "equivalentProperty" : [ {
         "identifier" : "equivalentProperty",
@@ -2546,8 +2676,11 @@
       "en" : "legalName"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "the legal name of a company"
+    },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "152"
+    "id" : "157"
   }, {
     "iri" : "https://schema.implisense.com/#employs",
     "baseIri" : "https://schema.implisense.com/",
@@ -2565,8 +2698,11 @@
       "en" : "employs"
     },
     "domain" : "25",
+    "comment" : {
+      "en" : "a person employed by a company"
+    },
     "attributes" : [ "object" ],
-    "id" : "153"
+    "id" : "158"
   }, {
     "iri" : "https://schema.implisense.com/#phone",
     "baseIri" : "https://schema.implisense.com/",
@@ -2585,25 +2721,25 @@
     },
     "domain" : "2",
     "comment" : {
-      "en" : "a phone number"
+      "en" : "a phone number (should be normalized)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "154"
+    "id" : "159"
   }, {
     "iri" : "https://schema.implisense.com/#vulnerability",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "70",
+    "range" : "72",
     "label" : {
       "IRI-based" : "vulnerability",
       "en" : "vulnerability"
     },
     "domain" : "2",
     "attributes" : [ "functional", "datatype" ],
-    "id" : "155"
+    "id" : "160"
   }, {
     "iri" : "https://schema.implisense.com/#eventType",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "68",
+    "range" : "55",
     "label" : {
       "IRI-based" : "eventType",
       "en" : "eventType"
@@ -2613,11 +2749,11 @@
       "en" : "Implisense event types:\nsituation (crisis, cyber attack), reorganization (dissolution, merger, aquisition), finances (report, funding, investment), market (sentiment, trade), corporate actions (name change, new product), corporate IT actions (erp, crm), marketing (blogs, awards, sponsoring), management (new ceo, board member change), hiring (job openings), fact (politics, infrastructure)"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "156"
+    "id" : "161"
   }, {
     "iri" : "https://schema.implisense.com/#companySize",
     "baseIri" : "https://schema.implisense.com/",
-    "range" : "138",
+    "range" : "141",
     "annotations" : {
       "seeAlso" : [ {
         "identifier" : "seeAlso",
@@ -2635,6 +2771,6 @@
       "en" : "the size of a company according to the EU SME definition"
     },
     "attributes" : [ "functional", "datatype" ],
-    "id" : "157"
+    "id" : "162"
   } ]
 }
