@@ -75,7 +75,7 @@ services:
     domainname: coypu_demo
     volumes:
       - ./knowledge_graph/kg_validation/api_configs/:/inputs/api_configs/
-      - .knowledge_graph/kg_validation/all_shapes/:/inputs/shapes/
+      - ./knowledge_graph/kg_validation/all_shapes/:/inputs/shapes/
     mem_limit: 8g
     ports:
       - '5001:5000'

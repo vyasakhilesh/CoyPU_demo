@@ -14,15 +14,17 @@ python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --unam
 # http://localhost:5000/
 
 
+#dragoman
+# docker exec -it coypu_demo_dragoman cp /src/mappings_and_config/configs_func/dragoman_func/functions.py /app/Interpreter/
+# curl localhost:6000/mapping_transformation/knowledge_graph/kg_creation/concepts/countries/configs/config_func.ini
+
+
 #Sdm-rdfizer
 # time python -m rdfizer -c ./knowledge_graph/kg_creation/countries/configs/config.ini
 # curl localhost:4000/graph_creation/knowledge_graph/kg_creation/countries/configs/config.ini
-# docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/countries/configs/config.ini
+# docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/concepts/countries/configs/config.ini
 
 
-#dragoman
-# docker exec -it coypu_demo_dragoman cp /src/mappings_and_config/configs_func/dragoman_func/functions.py /app/Interpreter/
-# # curl localhost:6000/mapping_transformation/knowledge_graph/kg_creation/countries/configs/config_func_csv.ini
 
 #graph-db
 
