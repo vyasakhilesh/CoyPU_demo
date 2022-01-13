@@ -31,7 +31,7 @@ services:
     volumes:
       - ./data:/data/
       - ./knowledge_graph/kg_creation/:/knowledge_graph/kg_creation/
-      - ./data_gen/graphs/concepts:./data_gen/graphs/concepts
+      - ./data_gen/graphs/concepts/:/data_gen/graphs/concepts/
     ports:
       - "4000:4000"
     networks:
@@ -45,7 +45,7 @@ services:
     volumes:
       - ./data:/data
       - ./knowledge_graph/kg_creation/:/knowledge_graph/kg_creation/
-      - ./data_gen/graphs/concepts:./data_gen/graphs/concepts
+      - ./data_gen/graphs/concepts/:/data_gen/graphs/concepts/
       - ./src/mappings_and_config/configs_func/dragoman_func/:/src/mappings_and_config/configs_func/dragoman_func/
     ports:
       - "6000:4000"
@@ -75,7 +75,7 @@ services:
     domainname: coypu_demo
     volumes:
       - ./knowledge_graph/kg_validation/api_configs/:/inputs/api_configs/
-      - .knowledge_graph/kg_validation/all_shapes:/inputs/shapes
+      - .knowledge_graph/kg_validation/all_shapes/:/inputs/shapes/
     mem_limit: 8g
     ports:
       - '5001:5000'
