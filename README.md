@@ -1,2 +1,2 @@
 # CoyPu
-CoyPU KG creation, validation and expoloration
+CoyPU KG creation, validation and exploration
