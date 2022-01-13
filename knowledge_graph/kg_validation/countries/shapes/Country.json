@@ -12,14 +12,6 @@
         "conjunctions": [
             [
                 {
-                    "path": "ips:phone",
-                    "min": 1
-                },
-                {
-                    "path": "ips:phone",
-                    "max": 1
-                },
-                {
                     "path": "ex:isPartOfContinent",
                     "min": 1
                 },

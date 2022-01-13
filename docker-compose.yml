@@ -1,4 +1,4 @@
-version: "1"
+version: "2.2"
 services:
   # coypu_demo:
   #   image: akhileshvyas/coypu_demo:latest
@@ -87,7 +87,7 @@ services:
     container_name: coypu_demo_lubm
     domainname: coypu_demo
     volumes:
-      - ./data_gen/graphs/countries/graph/:/database/toLoad
+      - ./data_gen/graphs/disasters/graph/:/database/toLoad
     ports:
       - '15000:8890'
     networks:

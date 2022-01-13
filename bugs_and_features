@@ -1,0 +1,51 @@
+# SDM_Rdfizer
+    Linking of BlankNode (generted RML:Query)
+    Parent_Map: with rr:constant, rr:template , rr:query enabled or 
+    Mapping of constant (rr:objectMap [rr:constant "2021"; rr:datatype xsd:positiveInteger])
+    Logs of creation of rdf data files
+    change docker port 4000 -dragoman on same port
+    localhost not working - latest version 4.0.1
+    error: WikidataURL
+    Config file - server info
+    After selection of two dataset, duplicates are removed 
+
+
+# EasyRML
+    File for default prefixes is missing in docker
+    Remove upload files after extracting useful info ontology and datafile
+    Path - forget to put / in the end
+    Send json, and click multiple times generate same mapping multiple times
+    Save settings and show details (Edit and Submit)
+    Need to evalaute for more extensively
+
+# Dragoman
+    Dragoman for RDB data source
+    How to add own functions in docker container
+    How to know what functions are present and their parameters
+    No need to create csv files and if creating separte output folder for files
+    Root permission of generated files - can not delete if wrong transformation
+    Could we generate config files also with ttl file and datafiles
+    No transformation of datatype in rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
+
+# Valsparql
+    Public docker image is missing
+    How to execute shapes- having different locations
+    Query formation error for graphdb sparql endpoints
+    Caching of sparql endpoint
+    Validation result show - Optional- What fails in validating contraints
+    Separate folder for data and shape - Docker
+    Data folder having - different files other than graph - validation links fails
+
+# General
+    Path of the updated software
+    Relative path - config and mappings files
+    test-code missing
+    link between sdm-rdfizer and dragoman
+
+# CSVtoDB
+    Auto upload of CSV files to DB
+    Mapping of CSV datatypes to DB datatypes
+    df.convert_dtypes().dtypes
+    DataFrame.infer_objects()
+    pandas.api.types.infer_dtype()
+

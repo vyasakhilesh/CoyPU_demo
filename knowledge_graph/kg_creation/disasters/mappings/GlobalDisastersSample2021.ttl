@@ -43,9 +43,14 @@
         rr:objectMap [ rml:reference "type"; rr:language "en"; rr:datatype xsd:string];
     ];
     
-     rr:predicateObjectMap [
+    rr:predicateObjectMap [
         rr:predicate ex:hasDateTimeStamp;
         rr:objectMap [ rml:reference "timestamp"; rr:datatype xsd:dateTimeStamp];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ips:locatedAt;
+        rr:objectMap [ rr:template "https://data.coypu.org/countries/{iso}"];
     ];
     
     rr:predicateObjectMap [
