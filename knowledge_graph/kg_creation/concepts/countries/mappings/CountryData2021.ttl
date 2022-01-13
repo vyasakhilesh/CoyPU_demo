@@ -44,6 +44,11 @@
      rr:predicateObjectMap [
         rr:predicate ex:isPartOfContinent;
         rr:objectMap [ rml:reference "Continent"; rr:language "en"];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ips:hasCountryStatistics;
+        rr:objectMap [ rr:template "http://example.com/ns#CountryStatistics/{ISO3}"];
     ].
 
 
@@ -51,8 +56,8 @@
     rml:logicalSource  [
         rml:source <#DB_source>; 
         rr:sqlVersion rr:SQL2008;
-        #rml:query """SELECT iso, Year, Rang FROM CountriesResilienceSample2021 """       
-        rr:tableName "CountryData2021" 
+        rml:query """ SELECT ISO3, Population FROM CountryData2021 """ ;      
+        # rr:tableName "CountryData2021" 
         ];
     
     rr:subjectMap [

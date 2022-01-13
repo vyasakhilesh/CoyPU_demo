@@ -31,11 +31,11 @@
         rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
     ];
 
-    rr:predicateObjectMap [
-        rr:predicate ex:wikiURI;
-        rr:objectMap <#falcon_entity_function>;
-    #    rml:reference "Exposure"
-    ];
+    # rr:predicateObjectMap [
+    #     rr:predicate ex:wikiURI;
+    #     rr:objectMap <#falcon_entity_function>;
+    # #    rml:reference "Exposure"
+    # ];
 
     rr:predicateObjectMap [
         rr:predicate ips:exposure;

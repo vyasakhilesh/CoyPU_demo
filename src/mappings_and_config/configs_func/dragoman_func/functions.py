@@ -42,7 +42,7 @@ headers = {"content-type": "application/json", "Accept-Charset": "UTF-8"}
 
 def falcon_entity_function():
     value = global_dic["value"]
-    url = "https://labs.tib.eu/falcon/falcon2/api?mode=long"
+    url = "https://labs.tib.eu/falcon/falcon2/api?mode=short"
     # headers = {"content-type": "application/json", "Accept-Charset": "UTF-8"}
     payload = '{"text":"' + value + '"}'
     r = requests.post(url, data=payload.encode("utf-8"), headers=headers)

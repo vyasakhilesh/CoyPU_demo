@@ -1,0 +1,21 @@
+{
+    "name": "Event",
+    "targetDef": {
+        "query": "SELECT ?x WHERE {?x a ips:Event}",
+        "class": "ips:Event"
+    },
+    "prefix": {
+        "ips": "<https://schema.implisense.com/#>"
+    },
+    "constraintDef": {
+        "conjunctions": [
+            [
+                {
+                    "path": "ips:locatedAt",
+                    "min": 1,
+                    "shape": "Country"
+                }
+            ]
+        ]
+    }
+}

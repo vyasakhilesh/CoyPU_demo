@@ -1,4 +1,4 @@
-@prefix : <https://schema.implisense.com/#> .
+@prefix : <https://schema.implisense.com/> .
 @prefix gn: <https://www.geonames.org/ontology#> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
@@ -23,16 +23,17 @@
                                   terms:created "2021-09-06" ;
                                   terms:creator "Nils Steinert"@en ;
                                   terms:isVersionOf "https://schema.implisense.com/" ;
-                                  terms:modified "2021-12-02" ;
+                                  terms:modified "2021-01-06" ;
                                   terms:rights "CC BY 4.0 - Implisense GmbH"@en ;
                                   terms:title "Implisense Ontology"@en ;
+                                  <http://purl.org/vocab/vann/preferredNamespacePrefix> "ips" ;
+                                  <http://purl.org/vocab/vann/preferredNamespaceUri> "https://schema.implisense.com/" ;
                                   rdfs:comment "Ontology to describe companies and their employees, products, production materials, industries, events and relations"@en ;
                                   rdfs:isDefinedBy "https://schema.implisense.com/" ;
                                   rdfs:label "ips: Implisense Ontology"@en ;
-                                  owl:versionInfo 0.6 ;
-                                  ips:license "https://creativecommons.org/licenses/by/4.0/" ;
-                                  ips:preferedNamespaceUri "https://schema.implisense.com/" ;
-                                  ips:preferredNamespacePrefix "ips" .
+                                  owl:priorVersion 0.7 ;
+                                  owl:versionInfo 0.8 ;
+                                  <https://creativecommons.org/ns#license> "https://creativecommons.org/licenses/by/4.0/" .
 
 #################################################################
 #    Annotation properties
@@ -64,6 +65,14 @@ terms:rights rdf:type owl:AnnotationProperty .
 
 ###  http://purl.org/dc/terms/title
 terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
 
 
 ###  http://schema.org/about
@@ -102,16 +111,8 @@ owl:equivalentClass rdf:type owl:AnnotationProperty .
 owl:equivalentProperty rdf:type owl:AnnotationProperty .
 
 
-###  https://schema.implisense.com/#license
-ips:license rdf:type owl:AnnotationProperty .
-
-
-###  https://schema.implisense.com/#preferedNamespaceUri
-ips:preferedNamespaceUri rdf:type owl:AnnotationProperty .
-
-
-###  https://schema.implisense.com/#preferredNamespacePrefix
-ips:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+###  https://creativecommons.org/ns#license
+<https://creativecommons.org/ns#license> rdf:type owl:AnnotationProperty .
 
 
 #################################################################
@@ -126,20 +127,10 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
-###  https://schema.implisense.com/#about
-ips:about rdf:type owl:ObjectProperty ;
-          owl:inverseOf ips:subjectOf ;
-          rdfs:domain ips:Event ;
-          rdfs:comment "the thing an event is about"@en ;
-          rdfs:label "about"@en ;
-          owl:equivalentProperty "https://schema.org/about" .
-
-
 ###  https://schema.implisense.com/#activeIn
 ips:activeIn rdf:type owl:ObjectProperty ;
              rdfs:domain ips:Company ;
-             rdfs:range ips:Industry ;
-             rdfs:comment "the sector or industry a company is part of"@en ;
+             rdfs:comment "the country, sector or industry a company is active in"@en ;
              rdfs:label "activeIn"@en .
 
 
@@ -147,44 +138,54 @@ ips:activeIn rdf:type owl:ObjectProperty ;
 ips:employs rdf:type owl:ObjectProperty ;
             rdfs:domain ips:Company ;
             rdfs:range ips:Person ;
+            rdfs:comment "a person employed by a company"@en ;
             rdfs:label "employs"@en ;
             owl:equivalentProperty "https://schema.org/employee" .
 
 
 ###  https://schema.implisense.com/#impacts
 ips:impacts rdf:type owl:ObjectProperty ;
-            rdfs:comment "the thing impacted by an event or trend"@en ;
+            rdfs:domain ips:Event ;
+            rdfs:comment "the thing impacted by an event"@en ;
             rdfs:label "impacts"@en .
+
+
+###  https://schema.implisense.com/#isAbout
+ips:isAbout rdf:type owl:ObjectProperty ;
+            owl:inverseOf ips:isSubjectOf ;
+            rdfs:domain ips:Event ;
+            rdfs:comment "the thing an event is about"@en ;
+            rdfs:label "isAbout"@en ;
+            owl:equivalentProperty "https://schema.org/about" .
 
 
 ###  https://schema.implisense.com/#isPartOf
 ips:isPartOf rdf:type owl:ObjectProperty ;
-             rdfs:domain ips:Company ;
-             rdfs:range ips:Company ;
-             rdfs:comment "the group or concern affilitations of a company"@en ;
+             rdfs:comment "the entity another entity is part of"@en ;
              rdfs:label "isPartOf"@en .
+
+
+###  https://schema.implisense.com/#isSubjectOf
+ips:isSubjectOf rdf:type owl:ObjectProperty ;
+                rdfs:range ips:Event ;
+                rdfs:comment "the publisher or subject of an event"@en ;
+                rdfs:label "isSubjectOf"@en ;
+                owl:equivalentProperty "https://schema.org/subjectOf" .
 
 
 ###  https://schema.implisense.com/#locatedAt
 ips:locatedAt rdf:type owl:ObjectProperty ;
               rdfs:range ips:Location ;
               rdfs:comment "the location an event, company or critical infrastructure is located at"@en ;
-              rdfs:label "locatedAt"^^xsd:string ;
+              rdfs:label "locatedAt"@en ;
               rdfs:seeAlso "https://schema.org/location" .
 
 
 ###  https://schema.implisense.com/#sources
 ips:sources rdf:type owl:ObjectProperty ;
-            rdfs:comment "a product, material, resource or service sourced from a company, country or industry"@en ;
+            rdfs:comment "a product, material, resource or service sourced from a company, country or industry"@en ,
+                         "rename to isSuppliedBy?"@en ;
             rdfs:label "sources"@en .
-
-
-###  https://schema.implisense.com/#subjectOf
-ips:subjectOf rdf:type owl:ObjectProperty ;
-              rdfs:range ips:Event ;
-              rdfs:comment "the publisher or subject of an event"@en ;
-              rdfs:label "subjectOf"@en ;
-              owl:equivalentProperty "https://schema.org/subjectOf" .
 
 
 ###  https://schema.implisense.com/#supplies
@@ -233,6 +234,7 @@ ips:alertScore rdf:type owl:DatatypeProperty ,
 ips:alternateName rdf:type owl:DatatypeProperty ,
                            owl:FunctionalProperty ;
                   rdfs:range xsd:string ;
+                  rdfs:comment "an alternate name of a thing"@en ;
                   rdfs:isDefinedBy "https://schema.org/alternateName"@en ;
                   rdfs:label "alternateName"@en .
 
@@ -251,6 +253,7 @@ ips:birthday rdf:type owl:DatatypeProperty ,
                       owl:FunctionalProperty ;
              rdfs:domain ips:Person ;
              rdfs:range xsd:dateTimeStamp ;
+             rdfs:comment "the birthday of a person"@en ;
              rdfs:label "birthday"@en ;
              owl:equivalentProperty "https://schema.org/birthDate" .
 
@@ -260,6 +263,7 @@ ips:capital rdf:type owl:DatatypeProperty ,
                      owl:FunctionalProperty ;
             rdfs:domain ips:Company ;
             rdfs:range xsd:string ;
+            rdfs:comment "the capital of a company"@en ;
             rdfs:label "capital"@en .
 
 
@@ -298,24 +302,19 @@ ips:created rdf:type owl:DatatypeProperty ,
 
 
 ###  https://schema.implisense.com/#currency
-ips:currency rdf:type owl:DatatypeProperty ;
-             rdfs:subPropertyOf ips:balanceSheetTotal ,
-                                ips:price ,
-                                ips:profit ,
-                                ips:revenue ;
-             rdf:type owl:FunctionalProperty ;
-             rdfs:comment """a monetary value's currency 
-(range removed due to unintentional inferred equivalence to owl:bottomDataProperty)"""@en ;
+ips:currency rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:range xsd:decimal ;
+             rdfs:comment "the currency of a country or monetary value"@en ;
              rdfs:label "currency"@en ;
              owl:equivalentProperty "https://schema.org/currency" .
 
 
 ###  https://schema.implisense.com/#date
-ips:date rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf ips:price ,
-                            ips:priceVolatility ;
-         rdf:type owl:FunctionalProperty ;
+ips:date rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
          rdfs:range xsd:dateTimeStamp ;
+         rdfs:comment "a date (like 2021-12-24T18:30:00-02:00)"@en ;
          rdfs:label "date"@en .
 
 
@@ -323,6 +322,7 @@ ips:date rdf:type owl:DatatypeProperty ;
 ips:description rdf:type owl:DatatypeProperty ,
                          owl:FunctionalProperty ;
                 rdfs:range xsd:string ;
+                rdfs:comment "the description of a thing"@en ;
                 rdfs:label "description"@en ;
                 owl:equivalentProperty "https://schema.org/description" .
 
@@ -332,6 +332,7 @@ ips:dissolutionDate rdf:type owl:DatatypeProperty ,
                              owl:FunctionalProperty ;
                     rdfs:domain ips:Company ;
                     rdfs:range xsd:dateTimeStamp ;
+                    rdfs:comment "the dissolution date of a company"@en ;
                     rdfs:label "dissolutionDate"@en ;
                     owl:equivalentProperty "https://schema.org/dissolutionDate" .
 
@@ -388,6 +389,7 @@ ips:familyName rdf:type owl:DatatypeProperty ,
                         owl:FunctionalProperty ;
                rdfs:domain ips:Person ;
                rdfs:range xsd:string ;
+               rdfs:comment "the family name of a person"@en ;
                rdfs:label "familyName"@en ;
                owl:equivalentProperty "https://schema.org/familyName" .
 
@@ -406,6 +408,7 @@ ips:foundingDate rdf:type owl:DatatypeProperty ,
                           owl:FunctionalProperty ;
                  rdfs:domain ips:Company ;
                  rdfs:range xsd:dateTimeStamp ;
+                 rdfs:comment "the founding date of a company"@en ;
                  rdfs:label "foundingDate"@en ;
                  owl:equivalentProperty "https://schema.org/foundingDate" .
 
@@ -415,6 +418,7 @@ ips:givenName rdf:type owl:DatatypeProperty ,
                        owl:FunctionalProperty ;
               rdfs:domain ips:Person ;
               rdfs:range xsd:string ;
+              rdfs:comment "the given name of a person"@en ;
               rdfs:label "givenName"@en ;
               owl:equivalentProperty "https://schema.org/givenName" .
 
@@ -480,11 +484,19 @@ ips:isoCode rdf:type owl:DatatypeProperty ,
             rdfs:label "isoCode"@en .
 
 
+###  https://schema.implisense.com/#language
+ips:language rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:range xsd:string ;
+             rdfs:comment "a language spoken in a country or by a person"@en ;
+             rdfs:label "language"@en .
+
+
 ###  https://schema.implisense.com/#latitude
 ips:latitude rdf:type owl:DatatypeProperty ,
                       owl:FunctionalProperty ;
              rdfs:range xsd:decimal ;
-             rdfs:isDefinedBy "a latitude as defined in WGS 84"@en ;
+             rdfs:comment "a latitude as defined in WGS 84"@en ;
              rdfs:label "latitude"@en ;
              rdfs:seeAlso "http://www.w3.org/2003/01/geo/wgs84_pos#" ;
              owl:equivalentProperty "https://schema.org/latitude" ,
@@ -496,6 +508,7 @@ ips:legalForm rdf:type owl:DatatypeProperty ,
                        owl:FunctionalProperty ;
               rdfs:domain ips:Company ;
               rdfs:range xsd:string ;
+              rdfs:comment "the legal form of a company"@en ;
               rdfs:label "legalForm"@en .
 
 
@@ -504,6 +517,7 @@ ips:legalName rdf:type owl:DatatypeProperty ,
                        owl:FunctionalProperty ;
               rdfs:domain ips:Company ;
               rdfs:range xsd:string ;
+              rdfs:comment "the legal name of a company"@en ;
               rdfs:label "legalName"@en ;
               owl:equivalentProperty "https://schema.org/legalName" .
 
@@ -549,6 +563,7 @@ ips:naceCode rdf:type owl:DatatypeProperty ,
 ips:name rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          rdfs:range xsd:string ;
+         rdfs:comment "the name of a thing"@en ;
          rdfs:label "name"@en ;
          owl:equivalentProperty "http://dbpedia.org/property/name" ,
                                 "https://schema.org/name" .
@@ -569,6 +584,7 @@ ips:numberOfEmployees rdf:type owl:DatatypeProperty ,
 ips:percentage rdf:type owl:DatatypeProperty ,
                         owl:FunctionalProperty ;
                rdfs:range xsd:decimal ;
+               rdfs:comment "a percentage value"@en ;
                rdfs:label "percentage"@en .
 
 
@@ -576,7 +592,7 @@ ips:percentage rdf:type owl:DatatypeProperty ,
 ips:phone rdf:type owl:DatatypeProperty ,
                    owl:FunctionalProperty ;
           rdfs:range xsd:string ;
-          rdfs:comment "a phone number"@en ;
+          rdfs:comment "a phone number (should be normalized)"@en ;
           rdfs:label "phone"@en ;
           owl:equivalentProperty "https://schema.org/telephone" .
 
@@ -611,6 +627,7 @@ ips:profit rdf:type owl:DatatypeProperty ,
                     owl:FunctionalProperty ;
            rdfs:domain ips:Company ;
            rdfs:range xsd:decimal ;
+           rdfs:comment "the profit of a company (for a specified year in a specified currency)"@en ;
            rdfs:label "profit"@en .
 
 
@@ -636,7 +653,7 @@ ips:revenue rdf:type owl:DatatypeProperty ,
                      owl:FunctionalProperty ;
             rdfs:domain ips:Company ;
             rdfs:range xsd:decimal ;
-            rdfs:comment "the revenue of a company (at a specified date in a specified currency)"@en ;
+            rdfs:comment "the revenue of a company (for a specified year in a specified currency)"@en ;
             rdfs:label "revenue"@en ;
             rdfs:seeAlso "https://schema.org/yearlyRevenue" .
 
@@ -644,8 +661,8 @@ ips:revenue rdf:type owl:DatatypeProperty ,
 ###  https://schema.implisense.com/#riskLevel
 ips:riskLevel rdf:type owl:DatatypeProperty ,
                        owl:FunctionalProperty ;
-              rdfs:domain ips:Country ;
               rdfs:range xsd:decimal ;
+              rdfs:comment "the risk level of a country as defined by Weltrisikobericht"@en ;
               rdfs:label "riskLevel"@en ;
               rdfs:seeAlso "https://weltrisikobericht.de" .
 
@@ -682,6 +699,7 @@ ips:street rdf:type owl:DatatypeProperty ,
                     owl:FunctionalProperty ;
            rdfs:domain ips:Company ;
            rdfs:range xsd:string ;
+           rdfs:comment "a street address"@en ;
            rdfs:label "street"@en ;
            owl:equivalentProperty "https://schema.org/streetAddress" .
 
@@ -692,6 +710,15 @@ ips:susceptibility rdf:type owl:DatatypeProperty ;
                    rdf:type owl:FunctionalProperty ;
                    rdfs:range xsd:decimal ;
                    rdfs:label "susceptibility"@en .
+
+
+###  https://schema.implisense.com/#timestamp
+ips:timestamp rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain ips:Event ;
+              rdfs:range xsd:dateTimeStamp ;
+              rdfs:comment "the timestamp of an event"@en ;
+              rdfs:label "timestamp"@en .
 
 
 ###  https://schema.implisense.com/#title
@@ -709,6 +736,7 @@ ips:title rdf:type owl:DatatypeProperty ,
 ips:url rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
         rdfs:range xsd:anyURI ;
+        rdfs:comment "the url of a website"@en ;
         rdfs:label "url"@en ;
         owl:equivalentProperty "http://dbpedia.org/property/website" ,
                                "https://schema.org/url" .
@@ -719,6 +747,7 @@ ips:vat rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
         rdfs:domain ips:Company ;
         rdfs:range xsd:string ;
+        rdfs:comment "the vat id of a company"@en ;
         rdfs:label "vat"@en ;
         owl:equivalentProperty "https://schema.org/vatID" .
 
@@ -732,13 +761,10 @@ ips:vulnerability rdf:type owl:DatatypeProperty ;
 
 
 ###  https://schema.implisense.com/#year
-ips:year rdf:type owl:DatatypeProperty ;
-         rdfs:subPropertyOf ips:balanceSheetTotal ,
-                            ips:numberOfEmployees ,
-                            ips:profit ,
-                            ips:revenue ;
-         rdf:type owl:FunctionalProperty ;
+ips:year rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
          rdfs:range xsd:positiveInteger ;
+         rdfs:comment "a year (like 2021 or 1986)"@en ;
          rdfs:label "year"@en .
 
 
@@ -747,6 +773,7 @@ ips:zip rdf:type owl:DatatypeProperty ,
                  owl:FunctionalProperty ;
         rdfs:domain ips:Company ;
         rdfs:range xsd:string ;
+        rdfs:comment "a zip code"@en ;
         rdfs:label "zip"@en ;
         owl:equivalentProperty "https://schema.org/postalCode" .
 
@@ -758,6 +785,7 @@ ips:zip rdf:type owl:DatatypeProperty ,
 ###  https://schema.implisense.com/#City
 ips:City rdf:type owl:Class ;
          rdfs:subClassOf ips:Location ;
+         rdfs:comment "a city as defined by NUTS or IATA"@en ;
          rdfs:label "City"@en ;
          owl:equivalentClass "https://dbpedia.org/ontology/City" ,
                              "https://schema.org/City" .
@@ -862,6 +890,7 @@ ips:Product rdf:type owl:Class ;
 ###  https://schema.implisense.com/#Region
 ips:Region rdf:type owl:Class ;
            rdfs:subClassOf ips:Location ;
+           rdfs:comment "an administrative or economic area"@en ;
            rdfs:label "Region"@en ;
            owl:equivalentClass "https://dbpedia.org/ontology/AdministrativeRegion" ,
                                "https://schema.org/AdministrativeArea" .
