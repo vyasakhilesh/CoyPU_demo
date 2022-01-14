@@ -89,7 +89,10 @@ def concat2():
 
 
 def execute_function(row, header, dic):
-    func = dic["function"].split("/")[len(dic["function"].split("/")) - 1]
+    if "#" in dic["function"]:
+        func = dic["function"].split("#")[1]
+    else:
+        func = dic["function"].split("/")[len(dic["function"].split("/")) - 1]
     if func in functions_pool:
         global global_dic
         global_dic = execution_dic(row, header, dic)
