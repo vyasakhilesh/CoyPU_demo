@@ -38,7 +38,9 @@ docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_
 # http://localhost:5001/validate
 # http://localhost:15000/sparql
 
-
+#redash dashboard
+# https://labs.tib.eu/sdm/coypu-endpoint/sparql
 
 #general
 #docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
