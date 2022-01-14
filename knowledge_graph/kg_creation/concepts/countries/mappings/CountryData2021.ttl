@@ -12,8 +12,7 @@
 <CountryData2021_1> a rr:TriplesMap;
     rml:logicalSource [
         rml:source <#DB_source>; 
-        rr:sqlVersion rr:SQL2008;
-        # rml:query "SELECT iso, Year, Rang FROM CountriesResilienceSample2021";        
+        rr:sqlVersion rr:SQL2008;       
         rr:tableName "CountryData2021"
     ];
     rr:subjectMap [

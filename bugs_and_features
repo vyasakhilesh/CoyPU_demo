@@ -26,6 +26,7 @@
     Root permission of generated files - can not delete if wrong transformation
     Could we generate config files also with ttl file and datafiles
     No transformation of datatype in rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
+    Dragoman functions: ex:chomp (prefix ex with  @prefix ex: <http://example.com/ns/> or @prefix ex: <http://example.com/ns#>) not working with hash in ex prefix
 
 # Valsparql
     Public docker image is missing

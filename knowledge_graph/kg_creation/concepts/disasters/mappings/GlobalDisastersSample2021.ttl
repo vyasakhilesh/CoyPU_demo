@@ -57,3 +57,9 @@
         rr:predicate rdfs:label;
         rr:objectMap [ rml:reference "name"; rr:language "en"];
     ].
+
+<#DB_source> a d2rq:Database;
+  d2rq:jdbcDSN  "jdbc:mysql"; # "CONNECTIONDSN"; # the "jbdc:mysql:// part is ignored
+  d2rq:jdbcDriver "com.mysql.jdbc.Driver"; # "com.mysql.cj.jdbc.Driver"; # this is ignored
+  d2rq:username "avyas";
+  d2rq:password "" .

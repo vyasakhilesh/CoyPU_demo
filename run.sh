@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source src/datasets/mysql/credentials/cred.cred
 
 dataset_path1='data/datasets/countries/'
@@ -5,9 +7,9 @@ dataset_path2='data/datasets/disasters/'
 
 
 #load data sources
-python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --uname=$uname --dbname=$dbname -i=$dataset_path1
+# python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --uname=$uname --dbname=$dbname -i=$dataset_path1
 
-python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --uname=$uname --dbname=$dbname -i=$dataset_path2
+# python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --uname=$uname --dbname=$dbname -i=$dataset_path2
 
 
 # run Easy RML
@@ -15,15 +17,19 @@ python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --unam
 
 
 #dragoman
-# docker exec -it coypu_demo_dragoman cp /src/mappings_and_config/configs_func/dragoman_func/functions.py /app/Interpreter/
-# curl localhost:6000/mapping_transformation/knowledge_graph/kg_creation/concepts/countries/configs/config_func.ini
+
+docker exec -it coypu_demo_dragoman cp /src/mappings_and_config/configs_func/dragoman_func/functions.py /app/Interpreter/
+curl localhost:6000/mapping_transformation/knowledge_graph/kg_creation/concepts/countries/configs/config_func.ini
 
 
 #Sdm-rdfizer
 # time python -m rdfizer -c ./knowledge_graph/kg_creation/concepts/countries/configs/config.ini
 # curl localhost:4000/graph_creation/knowledge_graph/kg_creation/concepts/countries/configs/config.ini
-# docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/concepts/countries/configs/config.ini
+# curl localhost:4000/graph_creation/knowledge_graph/kg_creation/concepts/disasters/configs/config.ini
+docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/concepts/countries/configs/config.ini
+docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/concepts/disasters/configs/config.ini
 
+./run_copy_all.sh
 
 
 #graph-db

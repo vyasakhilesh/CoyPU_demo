@@ -24,7 +24,7 @@ services:
       - coypu_network
 
   semantic-enrichment:
-    image: asakor/sdmrdfizier:4.0.1
+    image: eiglesias34/sdmrdffizer:4.0.3
     hostname: coypu_demo_semantic-enrichment
     container_name: coypu_demo_semantic_enrichment
     domainname: coypu_demo
@@ -38,7 +38,7 @@ services:
       - coypu_network
 
   dragoman:
-    image: sdmtib/dragoman:1.0
+    image: sdmtib/dragoman:1.1
     hostname: coypu_demo_dragoman
     container_name: coypu_demo_dragoman
     domainname: coypu_demo
