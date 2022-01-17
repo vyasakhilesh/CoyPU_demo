@@ -3,6 +3,7 @@
 *.jar
 *.csv
 *.xlsx
+*.nt
 datasets/
 .vscode/
 data_gen/graphs/
