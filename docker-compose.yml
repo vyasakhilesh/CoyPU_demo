@@ -87,7 +87,7 @@ services:
     container_name: coypu_demo_lubm
     domainname: coypu_demo
     volumes:
-      - ./data_gen/graphs/all_graphs:/database/toLoad
+      - ./data_gen/graphs/all_graphs/:/database/toLoad
     ports:
       - '15000:8890'
     networks:
