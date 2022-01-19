@@ -10,6 +10,8 @@
 @prefix ex: <http://example.com/ns#>.
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix gn: <https://www.geonames.org/ontology#> .
 
 <CountriesResilienceSample2021_2> a rr:TriplesMap;
     rml:logicalSource  [
@@ -33,9 +35,14 @@
         rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
     ];
 
+    # rr:predicateObjectMap [
+    #     rr:predicate ex:wikiURI;
+    #     rr:objectMap <falcon_entity_function>;
+    # #    rml:reference "Exposure"
+    # ];
     rr:predicateObjectMap [
         rr:predicate ips:exposure;
-        rr:objectMap <#chomp_function>;
+        rr:objectMap <chomp_function>;
     ].
 
 <CountriesResilienceSample2021_1> a rr:TriplesMap;
@@ -52,7 +59,7 @@
 
     rr:predicateObjectMap [
         rr:predicate ips:isoCode;
-        rr:objectMap [ rml:reference "iso"; rr:datatype xsd:string];
+        rr:objectMap [ rml:reference "iso"; rr:language "en"];
     ];
 
     rr:predicateObjectMap [
@@ -77,6 +84,27 @@
 
 ##########################Functions####################################
 
+<falcon_entity_function>
+    fnml:functionValue [
+        rml:logicalSource [ rml:source <#DB_source>; 
+        rr:sqlVersion rr:SQL2008;        
+        rr:tableName "CountriesResilienceSample2021"
+	];
+        rr:predicateObjectMap [
+            rr:predicate fno:executes;
+            rr:objectMap [ 
+                rr:constant ex:falcon_entity_function 
+            ]
+        ];
+
+        rr:predicateObjectMap [
+            rr:predicate ex:value;
+            rr:objectMap [ 
+                rml:reference "country_name_en" 
+            ]
+        ];
+    ].
+    
 <chomp_function>
     fnml:functionValue [
         rml:logicalSource [ rml:source <#DB_source>; 

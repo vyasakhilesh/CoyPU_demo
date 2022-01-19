@@ -8,6 +8,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <https://schema.org/> .
 @prefix ex: <http://example.com/ns#>.
+@prefix gn: <https://www.geonames.org/ontology#> .
 
 
 <GlobalDisastersSample2021_1> a rr:TriplesMap;
@@ -34,7 +35,7 @@
     ];
 
       rr:predicateObjectMap [
-        rr:predicate ips:eventStatus ;
+        rr:predicate ips:eventStatus;
         rr:objectMap [ rml:reference "status"; rr:language "en"; rr:datatype xsd:string];
     ];
 
@@ -44,7 +45,7 @@
     ];
     
     rr:predicateObjectMap [
-        rr:predicate ex:hasDateTimeStamp;
+        rr:predicate ex:hasDateTimeStamp; #ips:
         rr:objectMap [ rml:reference "timestamp"; rr:datatype xsd:dateTimeStamp];
     ];
 

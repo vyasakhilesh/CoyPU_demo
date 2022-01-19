@@ -8,6 +8,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <https://schema.org/> .
 @prefix ex: <http://example.com/ns#>.
+@prefix gn: <https://www.geonames.org/ontology#> .
 
 <CountryData2021_1> a rr:TriplesMap;
     rml:logicalSource [
@@ -21,8 +22,18 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ips:isoCode;
-        rr:objectMap [ rml:reference "ISO3"; rr:datatype xsd:string];
+        rr:predicate ips:isoCode; # Note: Three letters
+        rr:objectMap [ rml:reference "ISO3"; rr:language "en"]; # isoCode Language
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate gn:countryCode; # Note: Three letters
+        rr:objectMap [ rml:reference "ISO"; rr:language "en"];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate gn:geonamesID;
+        rr:objectMap [ rml:reference "geonameid"; rr:language "en"];
     ];
 
     rr:predicateObjectMap [
@@ -40,13 +51,18 @@
         rr:objectMap [ rml:reference "Phone"; rr:language "en"];
     ];
     
-     rr:predicateObjectMap [
+    rr:predicateObjectMap [
         rr:predicate ex:isPartOfContinent;
         rr:objectMap [ rml:reference "Continent"; rr:language "en"];
     ];
 
     rr:predicateObjectMap [
-        rr:predicate ips:hasCountryStatistics;
+        rr:predicate ex:hasArea;
+        rr:objectMap [ rml:reference "Area(in sq km)"; rr:datatype xsd:positiveInteger];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:hasCountryStatistics;
         rr:objectMap [ rr:template "http://example.com/ns#CountryStatistics/{ISO3}"];
     ].
 
@@ -63,10 +79,11 @@
         rr:template "http://example.com/ns#CountryStatistics/{ISO3}";
     ];
 
-     rr:predicateObjectMap [
+    rr:predicateObjectMap [
         rr:predicate ex:HasPopulation;
-        rr:objectMap [ rml:reference "Population"; rr:datatype xsd:positiveInteger];
+        rr:objectMap [ rml:reference "Population"; rr:datatype xsd:long];
     ];
+
 
     rr:predicateObjectMap [
         rr:predicate ips:year;

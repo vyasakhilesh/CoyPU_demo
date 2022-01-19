@@ -2,3 +2,8 @@ Notes
 # id + Ontology+id
 # id with your own ontology even you have url
 # 
+
+Commands
+docker exec -it <mycontainer> bash
+docker-compose up -d
+docker-compose down

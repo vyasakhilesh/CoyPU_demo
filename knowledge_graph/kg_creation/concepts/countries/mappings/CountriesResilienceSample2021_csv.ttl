@@ -11,6 +11,7 @@
 @prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
 @prefix fno: <https://w3id.org/function/ontology#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix gn: <https://www.geonames.org/ontology#> .
 
 <CountriesResilienceSample2021_2> a rr:TriplesMap;
     rml:logicalSource [ rml:source "/data/datasets/countries/CountriesResilienceSample2021.csv";
@@ -54,7 +55,7 @@
 
     rr:predicateObjectMap [
         rr:predicate ips:isoCode;
-        rr:objectMap [ rml:reference "iso"; rr:datatype xsd:string];
+        rr:objectMap [ rml:reference "iso"; rr:language "en"];
     ];
 
     rr:predicateObjectMap [
@@ -112,7 +113,8 @@
         rr:predicateObjectMap [
             rr:predicate ex:value;
             rr:objectMap [ 
-                rml:reference "Exposure" 
+                rml:reference "Exposure";
+                rdf:datatype xsd:decimal
             ] 
         ];  
 

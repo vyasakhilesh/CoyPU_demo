@@ -27,6 +27,7 @@
     Could we generate config files also with ttl file and datafiles
     No transformation of datatype in rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
     Dragoman functions: ex:chomp (prefix ex with  @prefix ex: <http://example.com/ns/> or @prefix ex: <http://example.com/ns#>) not working with hash in ex prefix
+    Is it possible to repeat same function again and again in TTL file
 
 # Valsparql
     Public docker image is missing

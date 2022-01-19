@@ -16,6 +16,14 @@ rsync -avP data_gen/graphs/all_graphs/*.nt node2:/data/coypu/sparql_endpoint/dat
 # for deleting files from remote side which are not on local side
 #rsync -avP --delete data_gen/graphs/all_graphs/*.nt node2:/data/coypu/sparql_endpoint/data_load
 
+echo '##################### Setup Docker ##################'
+scp ./docker_command.sh node2://data/coypu/sparql_endpoint/
+ssh node2 'cd /data/coypu/sparql_endpoint/ && ./docker_command.sh >out 2>error &'
+sleep 60s
+ssh node2 'cat /data/coypu/sparql_endpoint/out || cat /data/coypu/sparql_endpoint/error'
+
+
+
 
 
 
