@@ -66,7 +66,7 @@
     
     rr:predicateObjectMap [
         rr:predicate ex:hasTotalAffected; #ips:
-        rr:objectMap [ rml:reference "Total Affected"; rr:datatype xsd:long];
+        rr:objectMap [ rml:reference "Total Affected"; rr:datatype xsd:double];
     ];
 
     rr:predicateObjectMap [

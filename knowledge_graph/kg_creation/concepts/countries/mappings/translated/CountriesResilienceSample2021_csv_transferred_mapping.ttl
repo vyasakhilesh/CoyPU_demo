@@ -23,6 +23,12 @@
         rr:class ips:Country
     ];
     rr:predicateObjectMap [
+        rr:predicate ex:hasCountryStatistics;
+        rr:objectMap [
+        rr:template  "http://example.com/ns#CountryStatistics/{iso}"
+        ]
+    ];
+    rr:predicateObjectMap [
         rr:predicate rdfs:label;
         rr:objectMap [
         rml:reference "country_name_en"
@@ -39,12 +45,6 @@
         rr:objectMap [
         rml:reference "country_name_de"
         ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ex:hasCountryStatistics;
-        rr:objectMap [
-        rr:template  "http://example.com/ns#CountryStatistics/{iso}"
-        ]
     ].
 
 <file:///knowledge_graph/kg_creation/concepts/countries/mappings/CountriesResilienceSample2021_2>
@@ -56,13 +56,6 @@
         rr:template "http://example.com/ns#CountryStatistics/{iso}";
     ];
     rr:predicateObjectMap [
-        rr:predicate ips:year;
-        rr:objectMap [
-        rr:constant "2021";
-        rr:datatype xsd:positiveInteger;
-        ]
-    ];
-    rr:predicateObjectMap [
         rr:predicate ips:exposure;
         rr:objectMap [
         rr:parentTriplesMap <ns#chomp_output1>;
@@ -71,6 +64,13 @@
             rr:parent "Exposure";
             ];
         ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:year;
+        rr:objectMap [
+        rr:constant "2021";
+        rr:datatype xsd:positiveInteger;
+        ]
     ];
     rr:predicateObjectMap [
         rr:predicate ips:riskLevel;
