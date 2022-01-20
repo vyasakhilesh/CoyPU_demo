@@ -7,6 +7,7 @@ dataset_path2='data/datasets/disasters/'
 
 
 #load data sources
+echo '##################### Uploading data on database ##################'
 # python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --uname=$uname --dbname=$dbname -i=$dataset_path1
 
 # python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --uname=$uname --dbname=$dbname -i=$dataset_path2
@@ -17,18 +18,20 @@ dataset_path2='data/datasets/disasters/'
 
 
 #dragoman
-
+echo '##################### Execution of Dragoman for functions mappings ##################'
 docker exec -it coypu_demo_dragoman cp /src/mappings_and_config/configs_func/dragoman_func/functions.py /app/Interpreter/
 curl localhost:6000/mapping_transformation/knowledge_graph/kg_creation/concepts/countries/configs/config_func.ini
 
 
 #Sdm-rdfizer
+echo '##################### Execution of Sdm-rdfizer for transformation in RDF KG ##################'
 # time python -m rdfizer -c ./knowledge_graph/kg_creation/concepts/countries/configs/config.ini
 # curl localhost:4000/graph_creation/knowledge_graph/kg_creation/concepts/countries/configs/config.ini
 # curl localhost:4000/graph_creation/knowledge_graph/kg_creation/concepts/disasters/configs/config.ini
 docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/concepts/countries/configs/config.ini
 docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/concepts/disasters/configs/config.ini
 
+echo '##################### Uploading RDF data files to triple store ##################'
 ./run_copy_all.sh
 
 
