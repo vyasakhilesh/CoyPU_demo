@@ -77,6 +77,7 @@
     
     rr:subjectMap [
         rr:template "http://example.com/ns#CountryStatistics/{ISO3}";
+        rr:class ex:CountryStatistics;
     ];
 
     rr:predicateObjectMap [

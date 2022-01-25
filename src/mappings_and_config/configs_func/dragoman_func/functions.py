@@ -43,13 +43,18 @@ headers = {"content-type": "application/json", "Accept-Charset": "UTF-8"}
 def falcon_entity_function():
     value = global_dic["value"]
     url = "https://labs.tib.eu/falcon/falcon2/api?mode=short"
+    # url = "https://labs.tib.eu/falcon/falcon2/api?mode=long"
     # headers = {"content-type": "application/json", "Accept-Charset": "UTF-8"}
     payload = '{"text":"' + value + '"}'
     r = requests.post(url, data=payload.encode("utf-8"), headers=headers)
     try:
         if r.status_code == 200:
             response = r.json()
-            return response["entities_wikidata"][0][1]
+            print(response)
+            return "<http://www.wikidata.org/entity/response/{}>".format(
+                response["entities"][0][0]
+            )
+            # return response["entities_wikidata"][0][1]
     except Exception as e:
         print("Error: ", e)
 

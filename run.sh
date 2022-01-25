@@ -16,6 +16,9 @@ echo '##################### Uploading data on database ##################'
 # run Easy RML
 # http://localhost:5000/
 
+echo '##################### Runnning all docker services ##################'
+docker-compose up -d
+docker ps
 
 #dragoman
 echo '##################### Execution of Dragoman for functions mappings ##################'
