@@ -35,14 +35,9 @@
         rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
     ];
 
-    # rr:predicateObjectMap [
-    #     rr:predicate ex:wikiURI;
-    #     rr:objectMap <falcon_entity_function>;
-    # #    rml:reference "Exposure"
-    # ];
     rr:predicateObjectMap [
         rr:predicate ips:exposure;
-        rr:objectMap <chomp_function>;
+        rr:objectMap <chomp_func>;
     ].
 
 <CountriesResilienceSample2021_1> a rr:TriplesMap;
@@ -71,6 +66,11 @@
         rr:predicate rdfs:alternateName;
         rr:objectMap [ rml:reference "country_name_de"; rr:language "de"];
     ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:wikiURI;
+        rr:objectMap <falcon_entity_func>;
+    ];
     
     rr:predicateObjectMap [
         rr:predicate ex:hasCountryStatistics;
@@ -84,7 +84,7 @@
 
 ##########################Functions####################################
 
-<falcon_entity_function>
+<falcon_entity_func>
     fnml:functionValue [
         rml:logicalSource [ rml:source <#DB_source>; 
         rr:sqlVersion rr:SQL2008;        
@@ -105,7 +105,7 @@
         ];
     ].
     
-<chomp_function>
+<chomp_func>
     fnml:functionValue [
         rml:logicalSource [ rml:source <#DB_source>; 
         rr:sqlVersion rr:SQL2008;        

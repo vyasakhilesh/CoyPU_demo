@@ -1,16 +1,5 @@
 version: "2.2"
 services:
-  # coypu_demo:
-  #   image: akhileshvyas/coypu_demo:latest
-  #   hostname: coypu_demo
-  #   container_name: coypu_demo
-  #   domainname: coypu_demo
-  #   volumes:
-  #     - ./data:/coypu_demo/data
-  #     - ./data_gen:/coypu_demo/data_gen
-  #   networks:
-  #     - coypu_network
-
   easyrml:
     image: sdmtib/easyrml:2.0
     hostname: coypu_demo_easyrml
@@ -53,7 +42,6 @@ services:
       - coypu_network
 
   graphdb:
-    # image: ontotext/graphdb:9.3.0-ee
     image: khaller/graphdb-free:latest
     hostname: coypu_demo_graphdb
     container_name: coypu_demo_graphdb
@@ -68,7 +56,6 @@ services:
 
   # #  dashbaord:
   valsparql:
-    # build: ./code/ # Not
     image: valsparql
     hostname: coypu_demo_valsparql
     container_name: coypu_demo_valsparql
@@ -92,17 +79,6 @@ services:
       - '15000:8890'
     networks:
       - coypu_network
-  #   graphdb:
-  #     image: sdmtib/graphdb:9.8.1-free
-  #     hostname: coypu_demo_graphdb
-  #     container_name: coypu_demo_graphdb
-  #     domainname: coypu_demo
-  #     volumes:
-  #       - ./data_gen:/coypu_demo/data_gen/
-  #     ports:
-  #       - "7200:7200"
-  #     networks:
-  #       - coypu_network
 
 networks:
   coypu_network:

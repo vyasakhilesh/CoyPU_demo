@@ -19,7 +19,7 @@
 						];
     
     rr:subjectMap [
-        rr:template "http://example.com/ns#CountryStatistics/{iso}";
+        rr:template "http://example.com/ns#CountryStatistics/{iso}"; # need to be changed {iso}_{year}
         rr:class ex:CountryStatistics;
     ];
 
@@ -31,11 +31,6 @@
      rr:predicateObjectMap [
         rr:predicate ips:year;
         rr:objectMap [ rr:constant "2021"; rr:datatype xsd:positiveInteger];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate ex:wikiURI;
-        rr:objectMap <falcon_entity_func>;
     ];
 
     rr:predicateObjectMap [
@@ -66,6 +61,11 @@
     rr:predicateObjectMap [
         rr:predicate rdfs:alternateName;
         rr:objectMap [ rml:reference "country_name_de"; rr:language "de"];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate ex:wikiURI;
+        rr:objectMap <falcon_entity_func>;
     ];
     
     rr:predicateObjectMap [
@@ -134,9 +134,3 @@
   d2rq:jdbcDriver "com.mysql.jdbc.Driver"; # "com.mysql.cj.jdbc.Driver"; # this is ignored
   d2rq:username "avyas";
   d2rq:password "" .
-
-# <#DB_source> a d2rq:Database;
-#   d2rq:jdbcDSN "CONNECTIONDSN"; # the "jbdc:mysql:// part is ignored
-#   d2rq:jdbcDriver "com.mysql.cj.jdbc.Driver"; # this is ignored
-#   d2rq:username "root";
-#   d2rq:password "" .

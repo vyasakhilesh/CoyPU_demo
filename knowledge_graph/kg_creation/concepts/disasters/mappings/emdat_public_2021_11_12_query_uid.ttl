@@ -11,7 +11,7 @@
 @prefix gn: <https://www.geonames.org/ontology#> .
 
 
-<GlobalDisastersSample2021_1> a rr:TriplesMap;
+<Emdat_public_2021_11_12_query_uid_1> a rr:TriplesMap;
     rml:logicalSource [
         rml:source <#DB_source>; 
         rr:sqlVersion rr:SQL2008;
