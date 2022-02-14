@@ -17,7 +17,8 @@ echo '##################### Uploading data on database ##################'
 # http://localhost:5000/
 
 echo '##################### Runnning all docker services ##################'
-docker-compose up -d
+docker-compose down &&
+docker-compose up -d &&
 docker ps
 
 #dragoman
