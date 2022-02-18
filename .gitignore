@@ -4,7 +4,7 @@
 *.csv
 *.xlsx
 *.nt
-datasets/
+data/
 .vscode/
 data_gen/graphs/
 data/datasets/
