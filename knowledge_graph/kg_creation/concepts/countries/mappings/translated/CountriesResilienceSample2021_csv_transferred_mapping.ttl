@@ -13,9 +13,53 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix gn: <https://www.geonames.org/ontology#> .
 
-<file:///knowledge_graph/kg_creation/concepts/countries/mappings/CountriesResilienceSample2021_2>
+<file:///knowledge_graph/kg_creation/concepts/countries/mappings/CountriesResilienceSample2021_1>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/concepts/countries/mappings/translated/CountriesResilienceSample2021_csv_PROJECT1.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "https://data.coypu.org/countries/{iso}";
+        rr:class ips:Country
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rml:reference "country_name_en"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ips:isoCode;
+        rr:objectMap [
+        rml:reference "iso"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:wikiURI;
+        rr:objectMap [
+        rr:parentTriplesMap <ns#falcon_entity_function_output1>;
+        rr:joinCondition [
+            rr:child "country_name_en";
+            rr:parent "country_name_en";
+            ];
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:alternateName;
+        rr:objectMap [
+        rml:reference "country_name_de"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:hasCountryStatistics;
+        rr:objectMap [
+        rr:template  "http://example.com/ns#CountryStatistics/{iso}"
+        ]
+    ].
+
+<file:///knowledge_graph/kg_creation/concepts/countries/mappings/CountriesResilienceSample2021_2>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/concepts/countries/mappings/translated/CountriesResilienceSample2021_csv_PROJECT2.csv";
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
@@ -32,7 +76,7 @@
     rr:predicateObjectMap [
         rr:predicate ips:exposure;
         rr:objectMap [
-        rr:parentTriplesMap <ns#chomp_output1>;
+        rr:parentTriplesMap <ns#chomp_output2>;
         rr:joinCondition [
             rr:child "Exposure";
             rr:parent "Exposure";
@@ -47,67 +91,23 @@
         ]
     ].
 
-<file:///knowledge_graph/kg_creation/concepts/countries/mappings/CountriesResilienceSample2021_1>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/concepts/countries/mappings/translated/CountriesResilienceSample2021_csv_PROJECT2.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "https://data.coypu.org/countries/{iso}";
-        rr:class ips:Country
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ex:hasCountryStatistics;
-        rr:objectMap [
-        rr:template  "http://example.com/ns#CountryStatistics/{iso}"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ips:isoCode;
-        rr:objectMap [
-        rml:reference "iso"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate ex:wikiURI;
-        rr:objectMap [
-        rr:parentTriplesMap <ns#falcon_entity_function_output2>;
-        rr:joinCondition [
-            rr:child "country_name_en";
-            rr:parent "country_name_en";
-            ];
-        ];
-    ];
-    rr:predicateObjectMap [
-        rr:predicate rdfs:alternateName;
-        rr:objectMap [
-        rml:reference "country_name_de"
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label;
-        rr:objectMap [
-        rml:reference "country_name_en"
-        ]
-    ].
-
-<ns#chomp_output1>
+<ns#falcon_entity_function_output1>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/concepts/countries/mappings/translated/CountriesResilienceSample2021_csv_OUTPUT1.csv";
                 rml:referenceFormulation ql:CSV
             ];
     rr:subjectMap [
-        rml:reference "ns#chomp_output1";
+        rml:reference "ns#falcon_entity_function_output1";
         rr:termType rr:IRI
     ].
 
-<ns#falcon_entity_function_output2>
+<ns#chomp_output2>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/knowledge_graph/kg_creation/concepts/countries/mappings/translated/CountriesResilienceSample2021_csv_OUTPUT2.csv";
                 rml:referenceFormulation ql:CSV
             ];
     rr:subjectMap [
-        rml:reference "ns#falcon_entity_function_output2";
+        rml:reference "ns#chomp_output2";
         rr:termType rr:IRI
     ].
 

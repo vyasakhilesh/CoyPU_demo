@@ -51,7 +51,7 @@ def falcon_entity_function():
         if r.status_code == 200:
             response = r.json()
             print(response)
-            return "<http://www.wikidata.org/entity/response/{}>".format(
+            return "<http://www.wikidata.org/entity/{}>".format(
                 response["entities"][0][0]
             )
             # return response["entities_wikidata"][0][1]

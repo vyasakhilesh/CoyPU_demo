@@ -1,16 +1,8 @@
 #!/bin/bash
 
-source src/datasets/mysql/credentials/cred.cred
-
-dataset_path1='data/datasets/countries/'
-dataset_path2='data/datasets/disasters/'
-
-
 #load data sources
 echo '##################### Uploading data on database ##################'
-# python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --uname=$uname --dbname=$dbname -i=$dataset_path1
-
-# python src/datasets/mysql/csv2dbs.py --host=$host --port=$port --pwd=$pwd --uname=$uname --dbname=$dbname -i=$dataset_path2
+./scripts/load_data.sh
 
 
 # run Easy RML
@@ -23,20 +15,14 @@ docker ps
 
 #dragoman
 echo '##################### Execution of Dragoman for functions mappings ##################'
-docker exec -it coypu_demo_dragoman cp /src/mappings_and_config/configs_func/dragoman_func/functions.py /app/Interpreter/
-curl localhost:6000/mapping_transformation/knowledge_graph/kg_creation/concepts/countries/configs/config_func.ini
-
+./scripts/dragoman.sh
 
 #Sdm-rdfizer
 echo '##################### Execution of Sdm-rdfizer for transformation in RDF KG ##################'
-# time python -m rdfizer -c ./knowledge_graph/kg_creation/concepts/countries/configs/config.ini
-# curl localhost:4000/graph_creation/knowledge_graph/kg_creation/concepts/countries/configs/config.ini
-# curl localhost:4000/graph_creation/knowledge_graph/kg_creation/concepts/disasters/configs/config.ini
-docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/concepts/countries/configs/config.ini
-docker exec -it coypu_demo_semantic_enrichment python3 -m rdfizer -c /knowledge_graph/kg_creation/concepts/disasters/configs/config.ini
+./scripts/sdm_rdfizer.sh
 
 echo '##################### Uploading RDF data files to triple store ##################'
-./run_copy_all.sh
+./scripts/run_copy_all.sh
 
 
 #graph-db
@@ -50,4 +36,19 @@ echo '##################### Uploading RDF data files to triple store ###########
 
 #general
 #docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+
+echo '##################### Backing-up Graphs Data on Triple Store ##################'
+ssh node2 'cp /data/coypu/sparql_endpoint/data_load/*.nt /data/coypu/sparql_endpoint/data_backup/'
+
+echo '#####################Copying Graphs Data to Triple Store ##################'
+rsync -avP data_gen/graphs/all_graphs/*.nt node2:/data/coypu/sparql_endpoint/data_load
+
+# for deleting files from remote side which are not on local side
+#rsync -avP --delete data_gen/graphs/all_graphs/*.nt node2:/data/coypu/sparql_endpoint/data_load
+
+echo '##################### Setting up docker for CoyPU sparql endpoint##################'
+scp ./docker_command.sh node2://data/coypu/sparql_endpoint/
+ssh node2 'cd /data/coypu/sparql_endpoint/ && ./docker_command.sh >out 2>error &'
+sleep 60s
+ssh node2 'cat /data/coypu/sparql_endpoint/out || cat /data/coypu/sparql_endpoint/error'
 
