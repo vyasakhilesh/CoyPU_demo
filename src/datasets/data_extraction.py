@@ -10,6 +10,7 @@ params = {"limit": 10, "profile": "list", "preset": "analysis"}
 # sending get request and saving the response as response object
 r = requests.get(url=url, params=params)
 
+# checking status code
 if r.status_code == 200:
     json_data = r.json()
     print(json_data["data"])
