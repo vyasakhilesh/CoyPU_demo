@@ -1,22 +1,21 @@
 {
     "name": "Country",
     "targetDef": {
-        "query": "SELECT ?x WHERE {?x a ips:Country}",
+        "query": "SELECT ?x WHERE {?x a coy:Country}",
         "class": "ips:Country"
     },
     "prefix": {
-        "ips": "<https://schema.implisense.com/#>",
-        "ex": "<http://example.com/ns#>"
+        "coy": "<https://schema.coypu.org/>"
     },
     "constraintDef": {
         "conjunctions": [
             [
                 {
-                    "path": "ex:isPartOfContinent",
+                    "path": "coy:isPartOfContinent",
                     "min": 1
                 },
                 {
-                    "path": "ex:isPartOfContinent",
+                    "path": "coy:isPartOfContinent",
                     "max": 1
                 }
             ]

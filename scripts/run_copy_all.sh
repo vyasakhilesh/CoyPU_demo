@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copy Grphs data
+# Copy Graphs data
 echo '#####################Copying Graphs Data ##################'
 find data_gen/graphs/concepts/ -name '*.nt' -exec cp -t data_gen/graphs/all_graphs {} +
 
