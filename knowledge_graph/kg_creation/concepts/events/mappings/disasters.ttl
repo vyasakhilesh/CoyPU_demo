@@ -1,4 +1,4 @@
-@prefix :      <https://schema.coypu.org/> .
+@prefix :    <https://schema.coypu.org/> .
 @prefix coy: <https://schema.coypu.org/> .
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
@@ -128,6 +128,69 @@
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
         rr:objectMap [ rml:reference "name"; rr:language "en"];
+    ].
+
+<GlobalDisastersGDAC_1> a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source <#DB_source>; 
+        rr:sqlVersion rr:SQL2008;
+        # rml:query "SELECT iso, Year, Rang FROM CountriesResilienceSample2021";        
+        rr:tableName "GlobalDisastersGDAC"
+    ];
+    rr:subjectMap [
+        rr:template "https://data.coypu.org/disasters/globalDisasterGdac/{id}";
+        rr:class coy:Disaster;
+    ];
+
+     rr:predicateObjectMap [
+        rr:predicate coy:hasUrl;
+        rr:objectMap [ rml:reference "url"; rr:datatype xsd:anyURI];
+    ];
+
+
+    rr:predicateObjectMap [
+        rr:predicate coy:hasEventID;
+        rr:objectMap [ rml:reference "id"; rr:datatype xsd:positiveInteger];
+    ];
+
+      rr:predicateObjectMap [
+        rr:predicate coy:hasEventStatus;
+        rr:objectMap [ rml:reference "current"; rr:language "en"; rr:datatype xsd:string];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate coy:hasEventType ;
+        rr:objectMap [ rml:reference "type"; rr:language "en"; rr:datatype xsd:string];
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate coy:hasDateTimeStamp; #coy:
+        rr:objectMap [ rml:reference "timestamp"; rr:datatype xsd:dateTimeStamp];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate coy:hasLocation;
+        rr:objectMap [ rr:template "https://data.coypu.org/country/{iso}"];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate coy:hasAlertScore;
+        rr:objectMap [ rml:reference "alertscore"; rr:datatype xsd:positiveInteger];
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [ rml:reference "name"; rr:language "en"];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate coy:hasLongitude;
+        rr:objectMap [ rml:reference "longitude"; rr:datatype xsd:decimal];
+    ];
+    
+    rr:predicateObjectMap [
+        rr:predicate coy:hasLatitude;
+        rr:objectMap [ rml:reference "latitude"; rr:datatype xsd:decimal];
     ].
 
 <#DB_source> a d2rq:Database;
