@@ -51,7 +51,7 @@
     ];
 
     rr:predicateObjectMap [
-        rr:predicate coy:isdCode;
+        rr:predicate coy:hasIsdCode;
         rr:objectMap [ rml:reference "Phone"; rr:language "en"];
     ];
     
