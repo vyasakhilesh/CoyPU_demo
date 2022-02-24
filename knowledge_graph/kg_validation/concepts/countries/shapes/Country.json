@@ -2,7 +2,7 @@
     "name": "Country",
     "targetDef": {
         "query": "SELECT ?x WHERE {?x a coy:Country}",
-        "class": "ips:Country"
+        "class": "coy:Country"
     },
     "prefix": {
         "coy": "<https://schema.coypu.org/>"

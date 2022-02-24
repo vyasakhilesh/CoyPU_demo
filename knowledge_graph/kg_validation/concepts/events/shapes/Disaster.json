@@ -1,8 +1,8 @@
 {
-    "name": "Event",
+    "name": "Disaster",
     "targetDef": {
-        "query": "SELECT ?x WHERE {?x a coy:Event}",
-        "class": "ips:Event"
+        "query": "SELECT ?x WHERE {?x a coy:Disaster}",
+        "class": "coy:Disaster"
     },
     "prefix": {
         "coy": "<https://schema.coypu.org/>"

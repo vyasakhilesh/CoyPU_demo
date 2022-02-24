@@ -67,7 +67,7 @@
 
     rr:predicateObjectMap [
         rr:predicate coy:hasCountryStatistics;
-        rr:objectMap [ rr:template "https://data.coypu.org/CountryStatistics/{ISO3}_2021"];
+        rr:objectMap [ rr:template "https://data.coypu.org/countryStatistics/{ISO3}_2021"];
     ].
 
 
