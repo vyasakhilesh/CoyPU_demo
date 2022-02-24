@@ -6,7 +6,7 @@ while true; do
     read -p "Do you wish to upload data on database?" yn
     case $yn in
         [Yy]* ) ./scripts/load_data.sh; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -21,7 +21,7 @@ while true; do
     read -p "Do you wish to run docker services?" yn
     case $yn in
         [Yy]* ) docker-compose down; docker-compose up -d; docker ps; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -40,7 +40,7 @@ while true; do
     read -p "Do you wish to upload RDF data files and validation files to all folder?" yn
     case $yn in
         [Yy]* ) ./scripts/run_copy_all.sh; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -78,7 +78,7 @@ while true; do
                 sleep 60s;
                 ssh node2 'cat /data/coypu/sparql_endpoint/out || cat /data/coypu/sparql_endpoint/error';
                 break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
