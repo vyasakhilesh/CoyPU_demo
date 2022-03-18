@@ -15,6 +15,7 @@ Load data (e.g. Emdat, GDACS, GlobalDisaster and Country Data)
 ## Create Mapping Files and Knowledge Graph Creation 
 
  * Steps:
+    
     0. Run (e.g. ./run.sh) to run all docker containers 
     1. Create Mapping file using [RML](https://rml.io/specs/rml/) or [easyRML](https://github.com/SDM-TIB/easyRML) http://localhost:5000/
     2. Add function in mapping file (RML+FnO) (e.g. knowledge_graph_creation/mappings/countries.ttl)
