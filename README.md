@@ -9,14 +9,17 @@ Sparql endpoints, redash-dashboard, valSparql, Detrusty
 
 ### Datasets
 
-Load data (e.g. Emdat, GDACS, GlobalDisaster and Country Data)
+Load data (e.g. Emdat, GDACS, GlobalDisaster and Country Data) (e.g. ./data/)
 
 
 ## Create Mapping Files and Knowledge Graph Creation 
 
  * Steps:
     
-    0. Run (e.g. ./run.sh) to run all docker containers 
+    0. Run (e.g. ./run.sh) to run all docker containers and execute complete pipeline 
+   
+    ###################################### Run each component separately ############################################
+
     1. Create Mapping file using [RML](https://rml.io/specs/rml/) or [easyRML](https://github.com/SDM-TIB/easyRML) http://localhost:5000/
     2. Add function in mapping file (RML+FnO) (e.g. knowledge_graph_creation/mappings/countries.ttl)
        a. Add function definition in python script (e.g. knowledge_graph_creation/mapping_funcs/functions.py)
@@ -56,8 +59,6 @@ Load data (e.g. Emdat, GDACS, GlobalDisaster and Country Data)
         docker exec -it semantic_enrichment python3 -m rdfizer -c /knowledge_graph_creation/configs/config.ini
 
         ```
-
-
 
 
 
