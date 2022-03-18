@@ -15,17 +15,20 @@ Load data (e.g. Emdat, GDACS, GlobalDisaster and Country Data) (e.g. ./data/)
 ## Create Mapping Files and Knowledge Graph Creation 
 
  * Steps:
-    
-    ### Run (e.g. ./run.sh) to run all docker containers and execute complete pipeline 
-   
-    ### Or Run each component separately
+      1. Run Docker Service (e.g. ./docker-compose.yml)
 
-      1. Create Mapping file using [RML](https://rml.io/specs/rml/) or [easyRML](https://github.com/SDM-TIB/easyRML) http://localhost:5000/
+      ```
+      docker-compose down; docker-compose up -d; docker ps; 
+      ```
+      
+      1. Create Mapping file manually ([RML](https://rml.io/specs/rml/)) or using [easyRML](https://github.com/SDM-TIB/easyRML) http://localhost:5000/
       2. Add function in mapping file (RML+FnO) (e.g. knowledge_graph_creation/mappings/countries.ttl)
          a. Add function definition in python script (e.g. knowledge_graph_creation/mapping_funcs/functions.py)
-      3. Add [config]((https://github.com/SDM-TIB/Dragoman)) file for the translation of mapping file into functions-free mapping file (RML only)
+
+      #### Dragoman
+      1. Add [config]((https://github.com/SDM-TIB/Dragoman)) file for the translation of mapping file into functions-free mapping file (RML only)
          (e.g. knowledge_graph_creation/mappings/configs/config_func.ini)
-      4. Run [Dragoman](https://github.com/SDM-TIB/Dragoman) (e.g. ./knowledge_graph_creation/dragoman.sh) for function free mapping files 
+      2. Run [Dragoman](https://github.com/SDM-TIB/Dragoman) (e.g. ./knowledge_graph_creation/dragoman.sh) for function free mapping files 
          
          From [PyPI](https://pypi.org/project/dragoman-tool/)
          ```
@@ -45,8 +48,9 @@ Load data (e.g. Emdat, GDACS, GlobalDisaster and Country Data) (e.g. ./data/)
           # Copying function-free mapping files into mapping folder
           cp data/translated/*.ttl knowledge_graph_creation/mappings/
          ```
-      5. Add [config](https://github.com/SDM-TIB/SDM-RDFizer/wiki/The-Parameters-of-the-Configuration-file) file to interpret mapping file (without functions) (e.g. knowledge_graph_creation/mappings/configs/config.ini)
-      6. Run [SDM-RdFizer](https://github.com/SDM-TIB/SDM-RDFizer) (e.g. ./knowledge_graph_creation/sdm_rdfizer.sh) to interpret mapping files and transformation of data sources into RDF Knowlede graph
+      #### SDM-RdFizer
+      1. Add [config](https://github.com/SDM-TIB/SDM-RDFizer/wiki/The-Parameters-of-the-Configuration-file) file to interpret mapping file (without functions) (e.g. knowledge_graph_creation/mappings/configs/config.ini)
+      2. Run [SDM-RdFizer](https://github.com/SDM-TIB/SDM-RDFizer) (e.g. ./knowledge_graph_creation/sdm_rdfizer.sh) to interpret mapping files and transformation of data sources into RDF Knowlede graph
           
           From PyPI [Link](https://pypi.org/project/rdfizer/):
           ```
@@ -59,8 +63,3 @@ Load data (e.g. Emdat, GDACS, GlobalDisaster and Country Data) (e.g. ./data/)
           docker exec -it semantic_enrichment python3 -m rdfizer -c /knowledge_graph_creation/configs/config.ini
 
           ```
-
-
-
-
-
